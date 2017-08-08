@@ -3,14 +3,16 @@
   - id: index
     title: koa-cola是什么?
   - id: ssr
-    title: SSR(服务器端直渲)
-  - id: Universal
+    title: SSR和SPA
+  - id: compare-next
+    title: 对比next.js
+  - id: universal
     title: Universal 前后端全栈开发
   - id: d-mvc
     title: decorator的mvc开发模式
 - title: 使用方法
   items:
   - id: installation
-    title: 安装
-  - id: using
+    title: 如何使用
+  - id: cli
     title: Cli命令

@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charSet='utf-8' />
-  <title>ko-cola - Installation</title>
+  <title>ko-cola - 如何使用</title>
   <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700' rel='stylesheet' type='text/css'>
   <link href='/doc/css/docs.css' rel='stylesheet'>
@@ -23,11 +23,15 @@
               </li>
             
               <li>
-                <a href='/doc/ssr.html'>SSR(服务器端直渲)</a>
+                <a href='/doc/ssr.html'>SSR和SPA</a>
               </li>
             
               <li>
-                <a href='/doc/Universal.html'>Universal 前后端全栈开发</a>
+                <a href='/doc/compare-next.html'>对比next.js</a>
+              </li>
+            
+              <li>
+                <a href='/doc/universal.html'>Universal 前后端全栈开发</a>
               </li>
             
               <li>
@@ -42,11 +46,11 @@
           <ul class='nav'>
             
               <li>
-                <a href='/doc/installation.html' class='active'>安装</a>
+                <a href='/doc/installation.html' class='active'>如何使用</a>
               </li>
             
               <li>
-                <a href='/doc/using.html'>Cli命令</a>
+                <a href='/doc/cli.html'>Cli命令</a>
               </li>
             
           </ul>
@@ -59,17 +63,38 @@
   </div>
   <div class='page'>
     <div class='page-content'>
-      <h1>Installation</h1>
-      <p>koa-cola doc</p>
+      <h1>如何使用</h1>
+      <p>koa-cola支持node.js的版本包括7.6和8，建议使用8，因为8.0使用的最新的v8版本，而且8.0会在<a href="https://github.com/nodejs/LTS" target="_blank" rel="external">今年10月正式激活LTS</a>，因为koa-cola的async/await是原生方式使用没有经过transform成es6，所以不支持node7.6以下的node版本。</p>
+<p>开发者可以通过两种开发模式进行koa-cola项目开发</p>
+<ol>
+<li><p>基于模版的文件结构方式创建koa-cola项目，通过这种方式创建出完整的项目工程，适合大型的web项目开发。</p>
+<ul>
+<li><code>npm i koa-cola ts-node -g</code></li>
+<li><code>koa-cola n app</code> 在当前文件夹创建名字为app的新koa-cola项目，创建完整的目录结构，并自动安装依赖</li>
+<li><code>cd app</code></li>
+<li><code>koa-cola -c</code> 执行webpack build bundle，并启动项目</li>
+<li>访问<a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a><br>(在开发环境，可以使用<code>npm run watch</code>和<code>npm run local</code>进行开发)</li>
+</ul>
+</li>
+<li><p>使用api方式创建项目，通过这种方式，可以几分钟内部署好koa-cola项目，适合简单的项目开发。</p>
+<ul>
+<li><code>npm i koa-cola ts-node -g</code></li>
+<li><code>koa-cola n app m api</code> 在目录里面创建api.tsx,package.json,tsconfig.json, 并自动安装依赖和启动项目</li>
+<li>访问<a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a><br>(在开发环境，可以使用<code>npm run local</code>进行开发)</li>
+</ul>
+</li>
+</ol>
+<p>api模式只需要一个app.tsx即可启动一个koa-cola web服务：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> * <span class="keyword">as</span> React <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"><span class="keyword">var</span> &#123;RunApp&#125; = <span class="built_in">require</span>(<span class="string">'koa-cola'</span>)</div><div class="line"><span class="keyword">var</span> &#123; Controller, Get, Use, Param, Body, Delete, Put, Post, QueryParam, View, Ctx, Response &#125; = <span class="built_in">require</span>(<span class="string">'koa-cola'</span>).Decorators.controller;</div><div class="line">@Controller(<span class="string">''</span>) </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">FooController</span> </span>&#123;</div><div class="line">    @Get(<span class="string">'/'</span>)</div><div class="line">    index(@Ctx() ctx) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">'&lt;h1&gt;hello koa-cola !&lt;/h1&gt;'</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Get(<span class="string">'/view'</span>)</div><div class="line">    @View(<span class="string">'some_view'</span>)</div><div class="line">    <span class="keyword">async</span> view( @Ctx() ctx ) &#123; </div><div class="line">        <span class="keyword">return</span> <span class="keyword">await</span> <span class="built_in">Promise</span>.resolve(&#123;</div><div class="line">            foo : <span class="string">'bar'</span></div><div class="line">        &#125;);</div><div class="line">    &#125; </div><div class="line">&#125;</div><div class="line">RunApp(&#123;</div><div class="line">    controllers: &#123;</div><div class="line">        FooController: FooController</div><div class="line">    &#125;,</div><div class="line">    pages: &#123;</div><div class="line">        some_view : <span class="function"><span class="keyword">function</span>(<span class="params">&#123;ctrl : &#123;foo&#125;&#125;</span>)</span>&#123;</div><div class="line">            <span class="keyword">return</span> &lt;div&gt;&#123;foo&#125;&lt;/div&gt;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 
     </div>
   </div>
   <div class='switch-page'>
     
-      <a class='previous' href='/doc/how-it-works.html'>Previous</a>
+      <a class='previous' href='/doc/d-mvc.html'>Previous</a>
     
     
-      <a class='next' href='/doc/using.html'>Next</a>
+      <a class='next' href='/doc/cli.html'>Next</a>
     
   </div>
 </body>

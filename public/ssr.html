@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charSet='utf-8' />
-  <title>ko-cola - SSR(服务器端直渲)</title>
+  <title>ko-cola - SSR和SPA</title>
   <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700' rel='stylesheet' type='text/css'>
   <link href='/doc/css/docs.css' rel='stylesheet'>
@@ -23,11 +23,15 @@
               </li>
             
               <li>
-                <a href='/doc/ssr.html' class='active'>SSR(服务器端直渲)</a>
+                <a href='/doc/ssr.html' class='active'>SSR和SPA</a>
               </li>
             
               <li>
-                <a href='/doc/Universal.html'>Universal 前后端全栈开发</a>
+                <a href='/doc/compare-next.html'>对比next.js</a>
+              </li>
+            
+              <li>
+                <a href='/doc/universal.html'>Universal 前后端全栈开发</a>
               </li>
             
               <li>
@@ -42,11 +46,11 @@
           <ul class='nav'>
             
               <li>
-                <a href='/doc/installation.html'>安装</a>
+                <a href='/doc/installation.html'>如何使用</a>
               </li>
             
               <li>
-                <a href='/doc/using.html'>Cli命令</a>
+                <a href='/doc/cli.html'>Cli命令</a>
               </li>
             
           </ul>
@@ -59,8 +63,16 @@
   </div>
   <div class='page'>
     <div class='page-content'>
-      <h1>SSR(服务器端直渲)</h1>
-      <p>koa-cola document</p>
+      <h1>SSR和SPA</h1>
+      <p>koa-cola是一个包括前后端全栈的框架，在服务器端，支持以react作为组件模板的方式直接渲染到浏览器端的SSR（Server Side Render）的架构，在浏览器端，支持react-router的bundle的SPA(Single Page Application）架构，SSR和SPA各有优缺点，SPA通过浏览器端router控制页面的跳转，交互体验更友好，但是对于搜索引擎不友好，所以支持SSR是无可避免的，对于开发者，开发koa-cola应用，不需要在写代码时候关心这段代码到底是SSR直渲还是SPA的异步，你只需要关心业务逻辑，koa-cola会帮助你解决代码在不同的环境运行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">@asyncConnect([</div><div class="line">  &#123;</div><div class="line">    key: <span class="string">'some_data'</span>,</div><div class="line">    promise: <span class="keyword">async</span> (&#123; params, helpers&#125;) =&gt; &#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">await</span> fetch(<span class="string">'/some/data/api'</span>);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">])</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Index</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span>&lt;<span class="title">Props</span>, <span class="title">States</span>&gt; </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(props: Props) &#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line">  &#125;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></div><div class="line"><span class="xml">        &#123;this.props.some_data&#125;</span></div><div class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> Index;</div></pre></td></tr></table></figure>
+<p> 上面这段是koa-cola项目里面使用了asyncConnect的装饰器来初始化数据。</p>
+<ul>
+<li>当刷新页面，需要SSR方式直渲Index页面时，服务器端会通过fetch获取数据，然后再渲染出来html。</li>
+<li><p>当在其他页面点击了<link>的react组件时，浏览器端则会通过router找到这个组件，然后在浏览器端使用fetch方法异步获取数据，然后重新在浏览器端渲染页面，这就是SPA方式。</p>
+<p>fetch是一个前后端均可支持的“universal”库，在koa-cola，开发者不但可以前后端使用数据请求接口fetch，甚至可以前后端使用router和redux，和部分组件(在服务器端react组件只支持render之前的生命周期)。</p>
+</li>
+</ul>
 
     </div>
   </div>
@@ -69,7 +81,7 @@
       <a class='previous' href='/doc/index.html'>Previous</a>
     
     
-      <a class='next' href='/doc/installation.html'>Next</a>
+      <a class='next' href='/doc/compare-next.html'>Next</a>
     
   </div>
 </body>
