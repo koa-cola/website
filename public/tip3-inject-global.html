@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charSet='utf-8' />
-  <title>ko-cola - koa-cola是什么?</title>
+  <title>ko-cola - Inject global全局注入</title>
   <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700' rel='stylesheet' type='text/css'>
   <link href='/doc/css/docs.css' rel='stylesheet'>
@@ -19,7 +19,7 @@
           <ul class='nav'>
             
               <li>
-                <a href='/doc/index.html' class='active'>koa-cola是什么?</a>
+                <a href='/doc/index.html'>koa-cola是什么?</a>
               </li>
             
               <li>
@@ -131,7 +131,7 @@
               </li>
             
               <li>
-                <a href='/doc/tip3-inject-global.html'>Inject global全局注入</a>
+                <a href='/doc/tip3-inject-global.html' class='active'>Inject global全局注入</a>
               </li>
             
               <li>
@@ -156,23 +156,17 @@
   </div>
   <div class='page'>
     <div class='page-content'>
-      <h1>koa-cola是什么?</h1>
-      <p>koa-cola是一个基于koa和react的SSR(server side render)web前后端全栈应用框架，使用typescript开发，使用d-mvc（es7 decorator风格的mvc）开发模式。另外koa-cola大量使用universal (“isomorphic”) 开发模式，比如react技术栈完全前后端universal（server端和client端均可以使用同一套component、react-redux、react-router）。</p>
-<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>koa-cola的开发风格受<a href="http://sailsjs.com/" target="_blank" rel="external">sails</a>影响，之前使用过sails开发过大型的web应用，深受其<a href="https://en.wikipedia.org/wiki/Convention_over_configuration" target="_blank" rel="external">约定优先配置</a>的开发模式影响。</p>
-<ul>
-<li>使用koa作为web服务（使用node8可以使用最新的v8高性能原生使用async/await）</li>
-<li>使用typescript开发</li>
-<li>使用完整的react技术栈(包括react-router和react-redux)</li>
-<li>react相关代码前后端复用(包括component渲染、react-router和react-redux)</li>
-<li>SSR(server side render)的完整方案，只需要一份react代码便可以实现：服务器端渲染＋浏览器端bundle实现的交互</li>
-</ul>
+      <h1>Inject global全局注入</h1>
+      <p>全局依赖注入，有时候在其他非应用运行时引用koa-cola里面的文件时，会因为文件依赖<code>app.xxx</code>而出错，使用inject global方式，可以实现第三方非koa-cola的require。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; reqInject &#125; <span class="keyword">from</span> <span class="string">'koa-cola'</span></div><div class="line"><span class="keyword">var</span> user;</div><div class="line">reqInject(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    user = <span class="built_in">require</span>(<span class="string">'./api/models/user'</span>).default <span class="comment">// 直接require项目内的文件</span></div><div class="line">    <span class="keyword">var</span> config = app.config; <span class="comment">// 或者app当前配置</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 
     </div>
   </div>
   <div class='switch-page'>
     
+      <a class='previous' href='/doc/tip2-redux.html'>Previous</a>
     
-      <a class='next' href='/doc/ssr.html'>Next</a>
+    
+      <a class='next' href='/doc/tip4-cluster.html'>Next</a>
     
   </div>
 </body>

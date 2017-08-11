@@ -34,7 +34,7 @@ koa-cola提供[两种方式](#tips-1-初始化react组件数据)来进行数据�
 
 next.js不支持子组件的数据初始化：
 
-> Note: getInitialProps can not be used in children components. Only in pages.
+Note: getInitialProps can not be used in children components. Only in pages.
 
 koa-cola则只需要加上decorator "include", 完全支持所有的子组件的数据初始化。
 

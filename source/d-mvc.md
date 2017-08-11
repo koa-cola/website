@@ -10,6 +10,7 @@ koa-cola可以使用es7的decorator装饰器开发模式来写mvc，controller�
 ### Controller
     
 使用decorator装饰器来注入相关依赖，路由层的decorators包括router、中间件、response、view，响应阶段的decorators包括koa.Context、param、response、request等，比如以下例子：
+
 ```javascript
 var { Controller, Get, Use, Param, Body, Delete, Put, Post, QueryParam, View, Ctx, Response } = require('koa-cola').Decorators.controller;
 @Controller('') 
@@ -32,15 +33,16 @@ class FooController {
         }
     }
 }
-```    
+```
 
-    因为使用decorator定义router，所以在koa-cola里面不需要单独定义router。
+
+因为使用decorator定义router，所以在koa-cola里面不需要单独定义router。
 
 ### View
 
 view层可以是简单的React.Component或者是stateless的函数组件，也可以是使用官方的react-redux封装过的组件，todolist demo的view则是使用了[redux-connect](https://github.com/makeomatic/redux-connect) 提供的decorator(当然你也可以直接用它的connect方法)，redux-connect也是基于react-redux，以下是view层支持的react组件类型。
     
-1. React.Component组件
+#### React.Component组件
 
 ```javascript
     class Index extends React.Component<Props, States>   {
@@ -57,7 +59,7 @@ view层可以是简单的React.Component或者是stateless的函数组件，也�
     export default Index
 ```
 
-2. stateless组件
+#### stateless组件
 
 ```javascript
     export default function({some_props}) {
@@ -65,7 +67,7 @@ view层可以是简单的React.Component或者是stateless的函数组件，也�
     }
 ```
 
-3. react-redux组件
+#### react-redux组件
 
 ```javascript
     import { connect } from 'react-redux'
@@ -78,11 +80,11 @@ view层可以是简单的React.Component或者是stateless的函数组件，也�
     )(Index)
 ```
 
-4. redux-connect的decorator
+#### redux-connect的decorator
 使用这种方式的话，需要注意两点：
-    * redux的reducer需要使用装饰器colaReducer
-    * 如果有子组件也是使用redux-connect封装，则需要使用装饰器include
-    * 以上两点可以参考todolist的[代码](https://github.com/koa-cola/todolist/blob/master/views/pages/colastyleDemo.tsx)
+* redux的reducer需要使用装饰器colaReducer
+* 如果有子组件也是使用redux-connect封装，则需要使用装饰器include
+* 以上两点可以参考todolist的[代码](https://github.com/koa-cola/todolist/blob/master/views/pages/colastyleDemo.tsx)
 
 ```javascript
 import AddTodo from '../official-demo/containers/AddTodo';
@@ -123,7 +125,7 @@ class ColastyleDemo extends React.Component<Props, States> {
 export default ColastyleDemo;
 ```
 
-5. 自定义header和bundle方式
+#### 自定义header和bundle方式
 
 koa-cola渲染页面时，默认会找views/pages/layout.ts封装页面的html，如果没有这个layout文件，则直接输出page组件的html，如果view组件使用了doNotUseLayout decorator，则页面不会使用layout.ts输出，这时你可以自定义header和bundle的decorator。
 
@@ -151,7 +153,7 @@ export default Page
 ### Model
 和必须使用decorator的controller层、必须使用react组件的view层不一样，model层是完全没有耦合，你可以使用任何你喜欢的orm或者odm，或者不需要model层也可以，不过使用koa-cola风格的来写model，你可以体验不一样的开发模式。
 
-1. 你可以直接在目录api/models下创建如user.ts：
+#### 你可以直接在目录api/models下创建如user.ts：
 ```javascript
 import * as mongoose from 'mongoose'
 export default mongoose.model('user', new mongoose.Schema({
@@ -165,7 +167,7 @@ export default mongoose.model('user', new mongoose.Schema({
 var user = await app.models.user.find({name : 'harry'})
 ```
 
-2. 使用koa-cola的风格写model
+#### 使用koa-cola的风格写model
 
 首先在`api/schemas`目录创建user.ts
 
@@ -211,7 +213,7 @@ var user : userSchema = await app.models.user.find({name : 'harry'})
 
 在前面提到的为什么需要在api/schemas定义model的schema，除了上面可以自动生成schema的接口，这部分可以在浏览器端代码复用，比如数据Validate。详细可以查看[文档](http://mongoosejs.com/docs/browser.html)
 
-3. koa-cola提供了前后端universal的api接口定义，比如todolist demo的获取数据的接口定义
+#### koa-cola提供了前后端universal的api接口定义，比如todolist demo的获取数据的接口定义
 
 ```javascript
 import { todoListSchema } from './typings/schema';

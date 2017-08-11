@@ -10,25 +10,33 @@
 <body>
   <div class='menu'>
     <div class='logo'>
-      Koa-cola
+      <a href="https://www.github.com/hcnode/koa-cola"><img src="/doc/images/github.png" width="25"></a>&nbsp;&nbsp;Koa-cola
     </div>
-    <nav class='menu-nav'>
+    <nav class='menu-nav' style="overflow-y: scroll;max-height: 87%;">
       {% for section in site.data.nav %}
         <ul class='nav'>
           <span>{{ section.title }}</span>
           <ul class='nav'>
             {% for item in section.items %}
               <li>
-                <a href='{{item.href || url_for(item.id + ".html") }}'{% if item.id == page.id %} class='active'{% endif %}>{{item.title}}</a>
+              {% if item.items %}
+                <a href='{{item.href || url_for(item.id + ".html") }}'{% if item.id == page.id %} class='active'{% endif %} style="padding:0px">{{item.title}}</a>
+                <ul class='nav' style="padding-top:0px">
+                  {% for item2 in item.items %}
+                    <li style="height:28px">
+                      <a href='{{item2.href || url_for(item2.id + ".html") }}'{% if item2.id == page.id %} class='active'{% endif %}>{{item2.title}}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% else %}
+                 <a href='{{item.href || url_for(item.id + ".html") }}'{% if item.id == page.id %} class='active'{% endif %}>{{item.title}}</a>
+              {% endif %}
               </li>
             {% endfor %}
           </ul>
         </ul>
       {% endfor %}
     </nav>
-    <a class='footer' href='https://github.com/hcnode/koa-cola'>
-      Project on github
-    </a>
   </div>
   <div class='page'>
     <div class='page-content'>

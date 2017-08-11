@@ -23,7 +23,7 @@ koa-cola提供了一些有用的cli命令，包括新建项目、启动项目、
 
 **注意：这将会覆盖你的view/app.tsx**
 
-如果你需要收到维护你的app.tsx，那么你需要运行webpack命令而不是`koa-cola build`
+如果你需要维护你的app.tsx，那么你需要运行webpack命令而不是`koa-cola build`
 
 ### 生成model schema文件
 
