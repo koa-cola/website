@@ -3,16 +3,27 @@
 <head>
   <meta charSet='utf-8' />
   <title>{{config.title + ' - ' + page.title}}</title>
-  <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700' rel='stylesheet' type='text/css'>
   <link href='{{ url_for("css/docs.css") }}' rel='stylesheet'>
+  <link href='{{ url_for("css/github-markdown.css") }}' rel='stylesheet'>
+  <script>
+    window.onunload = function(){
+      var scollTop = document.getElementsByClassName('menu-nav')[0].scrollTop;
+      document.cookie = 'scollTop=' + scollTop;
+    }
+    window.onload = function(){
+      var scrollTop = /scollTop=(\d+)/.test(document.cookie) && RegExp.$1;
+      document.getElementsByClassName('menu-nav')[0].style.overflowY='scroll'
+      document.getElementsByClassName('menu-nav')[0].scrollTop = scrollTop || 0;
+      document.getElementsByClassName('menu-nav')[0].style.overflowY='hidden'
+    }
+  </script>
 </head>
 <body>
   <div class='menu'>
     <div class='logo'>
       <a href="https://www.github.com/hcnode/koa-cola"><img src="/doc/images/github.png" width="25"></a>&nbsp;&nbsp;Koa-cola
     </div>
-    <nav class='menu-nav' style="overflow-y: scroll;max-height: 87%;">
+    <nav class='menu-nav' style="max-height: 87%;" onmouseover="this.style.overflowY='scroll'"  onmouseout="this.style.overflowY='hidden'">
       {% for section in site.data.nav %}
         <ul class='nav'>
           <span>{{ section.title }}</span>
@@ -41,6 +52,12 @@
   <div class='page'>
     <div class='page-content'>
       <h1>{{page.title}}</h1>
+      <div style="
+          float: right;
+          top: -60px;
+          position: relative;
+          margin-right: 10px;
+      "><a href="https://github.com/koa-cola/website/blob/master/source/{{page.id}}.md">修改</a></div>
       {{page.content}}
     </div>
   </div>

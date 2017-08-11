@@ -72,3 +72,14 @@ deploy:
   repo: https://github.com/koa-cola/koa-cola.github.io
   branch: master
   message: "Docs updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"
+  
+marked:
+  gfm: true
+  pedantic: false
+  sanitize: false
+  tables: true
+  breaks: true
+  smartLists: true
+  smartypants: true
+  modifyAnchors: ''
+  autolink: true

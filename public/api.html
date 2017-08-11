@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charSet='utf-8' />
-  <title>ko-cola - components</title>
+  <title>ko-cola - api</title>
   <link href='/doc/css/docs.css' rel='stylesheet'>
   <link href='/doc/css/github-markdown.css' rel='stylesheet'>
   <script>
@@ -143,7 +143,7 @@
             
               <li>
               
-                <a href='/doc/api.html' style="padding:0px">api</a>
+                <a href='/doc/api.html' class='active' style="padding:0px">api</a>
                 <ul class='nav' style="padding-top:0px">
                   
                     <li style="height:28px">
@@ -199,7 +199,7 @@
                     </li>
                   
                     <li style="height:28px">
-                      <a href='/doc/views-components.html' class='active'>components</a>
+                      <a href='/doc/views-components.html'>components</a>
                     </li>
                   
                 </ul>
@@ -213,20 +213,37 @@
   </div>
   <div class='page'>
     <div class='page-content'>
-      <h1>components</h1>
+      <h1>api</h1>
       <div style="
           float: right;
           top: -60px;
           position: relative;
           margin-right: 10px;
-      "><a href="https://github.com/koa-cola/website/blob/master/source/views-components.md">修改</a></div>
-      
+      "><a href="https://github.com/koa-cola/website/blob/master/source/api.md">修改</a></div>
+      <p>api目录包含应用的大部分业务逻辑，包括MVC架构中的<a href="/doc/api-controllers.html">controller</a>和<a href="/doc/api-models.html">和model</a>。</p>
+<p>使用new命令创建出来的脚手架目录里面，api包括：</p>
+<ul>
+<li>controllers</li>
+<li>models</li>
+<li>schemas</li>
+<li>responses</li>
+</ul>
+<p>在项目运行时，会将api的这些目录注入到全局app里面，如<code>app.controllers.IndexController</code>，可以在需要的时候使用。</p>
+<p>注入到app的api目录还包括这些：</p>
+<ul>
+<li>policies</li>
+<li>services</li>
+<li>managers</li>
+<li>middlewares</li>
+</ul>
+<p>以上这些目录不会出现在默认的项目里面，如果用户创建了，则会注入到app。</p>
+
     </div>
   </div>
   <div class='switch-page'>
     
-      <a class='previous' href='/doc/views-app.html'>Previous</a>
     
+      <a class='next' href='/doc/api-controllers.html'>Next</a>
     
   </div>
 </body>

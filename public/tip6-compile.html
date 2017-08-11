@@ -3,39 +3,60 @@
 <head>
   <meta charSet='utf-8' />
   <title>ko-cola - 代码编译</title>
-  <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700' rel='stylesheet' type='text/css'>
   <link href='/doc/css/docs.css' rel='stylesheet'>
+  <link href='/doc/css/github-markdown.css' rel='stylesheet'>
+  <script>
+    window.onunload = function(){
+      var scollTop = document.getElementsByClassName('menu-nav')[0].scrollTop;
+      document.cookie = 'scollTop=' + scollTop;
+    }
+    window.onload = function(){
+      var scrollTop = /scollTop=(\d+)/.test(document.cookie) && RegExp.$1;
+      document.getElementsByClassName('menu-nav')[0].style.overflowY='scroll'
+      document.getElementsByClassName('menu-nav')[0].scrollTop = scrollTop || 0;
+      document.getElementsByClassName('menu-nav')[0].style.overflowY='hidden'
+    }
+  </script>
 </head>
 <body>
   <div class='menu'>
     <div class='logo'>
-      Koa-cola
+      <a href="https://www.github.com/hcnode/koa-cola"><img src="/doc/images/github.png" width="25"></a>&nbsp;&nbsp;Koa-cola
     </div>
-    <nav class='menu-nav'>
+    <nav class='menu-nav' style="max-height: 87%;" onmouseover="this.style.overflowY='scroll'"  onmouseout="this.style.overflowY='hidden'">
       
         <ul class='nav'>
           <span>介绍</span>
           <ul class='nav'>
             
               <li>
-                <a href='/doc/index.html'>koa-cola是什么?</a>
+              
+                 <a href='/doc/index.html'>koa-cola是什么?</a>
+              
               </li>
             
               <li>
-                <a href='/doc/ssr.html'>SSR和SPA</a>
+              
+                 <a href='/doc/ssr.html'>SSR和SPA</a>
+              
               </li>
             
               <li>
-                <a href='/doc/compare-next.html'>对比next.js</a>
+              
+                 <a href='/doc/compare-next.html'>对比next.js</a>
+              
               </li>
             
               <li>
-                <a href='/doc/universal.html'>Universal 前后端全栈开发</a>
+              
+                 <a href='/doc/universal.html'>Universal 前后端全栈开发</a>
+              
               </li>
             
               <li>
-                <a href='/doc/d-mvc.html'>decorator的mvc开发模式</a>
+              
+                 <a href='/doc/d-mvc.html'>decorator的mvc开发模式</a>
+              
               </li>
             
           </ul>
@@ -46,11 +67,15 @@
           <ul class='nav'>
             
               <li>
-                <a href='/doc/installation.html'>如何使用</a>
+              
+                 <a href='/doc/installation.html'>如何使用</a>
+              
               </li>
             
               <li>
-                <a href='/doc/cli.html'>Cli命令</a>
+              
+                 <a href='/doc/cli.html'>Cli命令</a>
+              
               </li>
             
           </ul>
@@ -61,58 +86,9 @@
           <ul class='nav'>
             
               <li>
-                <a href='/doc/demo-todolist.html'>todolist例子</a>
-              </li>
-            
-          </ul>
-        </ul>
-      
-        <ul class='nav'>
-          <span>目录结构</span>
-          <ul class='nav'>
-            
-              <li>
-                <a href='/doc/api-controllers.html'>api/controllers</a>
-              </li>
-            
-              <li>
-                <a href='/doc/api-models.html'>api/models</a>
-              </li>
-            
-              <li>
-                <a href='/doc/api-schemas.html'>api/schemas</a>
-              </li>
-            
-              <li>
-                <a href='/doc/api-responses.html'>api/responses</a>
-              </li>
-            
-              <li>
-                <a href='/doc/config.html'>config</a>
-              </li>
-            
-              <li>
-                <a href='/doc/config-env.html'>config/env</a>
-              </li>
-            
-              <li>
-                <a href='/doc/public.html'>public</a>
-              </li>
-            
-              <li>
-                <a href='/doc/views.html'>views</a>
-              </li>
-            
-              <li>
-                <a href='/doc/views-pages.html'>views/pages</a>
-              </li>
-            
-              <li>
-                <a href='/doc/views-app.html'>views/app.tsx</a>
-              </li>
-            
-              <li>
-                <a href='/doc/views-components.html'>views/components</a>
+              
+                 <a href='http://www.koa-cola.com:3000'>todolist例子</a>
+              
               </li>
             
           </ul>
@@ -123,46 +99,138 @@
           <ul class='nav'>
             
               <li>
-                <a href='/doc/tip1-react-init.html'>初始化react组件数据</a>
+              
+                 <a href='/doc/tip1-react-init.html'>初始化react组件数据</a>
+              
               </li>
             
               <li>
-                <a href='/doc/tip2-redux.html'>redux-connect组件的redux坑</a>
+              
+                 <a href='/doc/tip2-redux.html'>redux-connect组件的redux坑</a>
+              
               </li>
             
               <li>
-                <a href='/doc/tip3-inject-global.html'>Inject global全局注入</a>
+              
+                 <a href='/doc/tip3-inject-global.html'>Inject global全局注入</a>
+              
               </li>
             
               <li>
-                <a href='/doc/tip4-cluster.html'>cluster集群模式</a>
+              
+                 <a href='/doc/tip4-cluster.html'>cluster集群模式</a>
+              
               </li>
             
               <li>
-                <a href='/doc/tip5-debug.html'>调试</a>
+              
+                 <a href='/doc/tip5-debug.html'>调试</a>
+              
               </li>
             
               <li>
-                <a href='/doc/tip6-compile.html' class='active'>代码编译</a>
+              
+                 <a href='/doc/tip6-compile.html' class='active'>代码编译</a>
+              
+              </li>
+            
+          </ul>
+        </ul>
+      
+        <ul class='nav'>
+          <span>目录结构</span>
+          <ul class='nav'>
+            
+              <li>
+              
+                <a href='/doc/api.html' style="padding:0px">api</a>
+                <ul class='nav' style="padding-top:0px">
+                  
+                    <li style="height:28px">
+                      <a href='/doc/api-controllers.html'>controllers</a>
+                    </li>
+                  
+                    <li style="height:28px">
+                      <a href='/doc/api-models.html'>models</a>
+                    </li>
+                  
+                    <li style="height:28px">
+                      <a href='/doc/api-schemas.html'>schemas</a>
+                    </li>
+                  
+                    <li style="height:28px">
+                      <a href='/doc/api-responses.html'>responses</a>
+                    </li>
+                  
+                </ul>
+              
+              </li>
+            
+              <li>
+              
+                <a href='/doc/config.html' style="padding:0px">config</a>
+                <ul class='nav' style="padding-top:0px">
+                  
+                    <li style="height:28px">
+                      <a href='/doc/config-env.html'>env</a>
+                    </li>
+                  
+                </ul>
+              
+              </li>
+            
+              <li>
+              
+                 <a href='/doc/public.html'>public</a>
+              
+              </li>
+            
+              <li>
+              
+                <a href='/doc/views.html' style="padding:0px">views</a>
+                <ul class='nav' style="padding-top:0px">
+                  
+                    <li style="height:28px">
+                      <a href='/doc/views-pages.html'>pages</a>
+                    </li>
+                  
+                    <li style="height:28px">
+                      <a href='/doc/views-app.html'>app.tsx</a>
+                    </li>
+                  
+                    <li style="height:28px">
+                      <a href='/doc/views-components.html'>components</a>
+                    </li>
+                  
+                </ul>
+              
               </li>
             
           </ul>
         </ul>
       
     </nav>
-    <a class='footer' href='https://github.com/hcnode/koa-cola'>
-      Project on github
-    </a>
   </div>
   <div class='page'>
     <div class='page-content'>
       <h1>代码编译</h1>
-      <h3 id="client"><a href="#client" class="headerlink" title="client"></a>client</h3><p>前端的bundle build使用webpack来构建，使用cli命令创建项目，会自动生成<a href="https://github.com/hcnode/koa-cola/blob/master/template/webpack.config.js" target="_blank" rel="external">webpack配置</a><br>ts文件的loader使用了<a href="https://github.com/s-panferov/awesome-typescript-loader" target="_blank" rel="external">awesome-typescript-loader</a>，并配置了使用babel，加入babel-polyfill到bundle，可以兼容ie9+。</p>
-<p>webpack的入口tsx文件在项目里面的<code>view/app.tsx</code>:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> * <span class="keyword">as</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123; render &#125; <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> IndexController <span class="keyword">from</span> <span class="string">'../api/controllers/IndexController'</span>;</div><div class="line"><span class="keyword">import</span> index <span class="keyword">from</span> <span class="string">'./pages/index'</span>;</div><div class="line"><span class="keyword">import</span> officialDemo <span class="keyword">from</span> <span class="string">'./pages/officialDemo'</span>;</div><div class="line"><span class="keyword">import</span> colastyleDemo <span class="keyword">from</span> <span class="string">'./pages/colastyleDemo'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> &#123; createProvider &#125; = <span class="built_in">require</span>(<span class="string">'koa-cola'</span>);</div><div class="line"><span class="comment">// 使用koa-cola提供的createProvider会自动建立路由，如果手动使用官方的Provider，则需要开发者手动写router</span></div><div class="line"><span class="keyword">var</span> Provider = createProvider([IndexController], &#123;</div><div class="line">  index,</div><div class="line">  officialDemo,</div><div class="line">  colastyleDemo</div><div class="line">&#125;);</div><div class="line"></div><div class="line">render(&lt;Provider /&gt;, document.getElementById('app'));</div></pre></td></tr></table></figure></p>
-<p>wepack build 新建默认的项目得到的bundle的大小有400K，依赖的库组成如下图：<br><img src="https://github.com/hcnode/koa-cola/raw/master/screenshots/bundle.png" alt="Drawing" width="800"></p>
+      <div style="
+          float: right;
+          top: -60px;
+          position: relative;
+          margin-right: 10px;
+      "><a href="https://github.com/koa-cola/website/blob/master/source/tip6-compile.md">修改</a></div>
+      <h3>client</h3>
+<p>前端的bundle build使用webpack来构建，使用cli命令创建项目，会自动生成<a href="https://github.com/hcnode/koa-cola/blob/master/template/webpack.config.js" target="_blank" rel="external">webpack配置</a><br>
+ts文件的loader使用了<a href="https://github.com/s-panferov/awesome-typescript-loader" target="_blank" rel="external">awesome-typescript-loader</a>，并配置了使用babel，加入babel-polyfill到bundle，可以兼容ie9+。</p>
+<p>webpack的入口tsx文件在项目里面的<code>view/app.tsx</code>:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> * <span class="keyword">as</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123; render &#125; <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> IndexController <span class="keyword">from</span> <span class="string">'../api/controllers/IndexController'</span>;</div><div class="line"><span class="keyword">import</span> index <span class="keyword">from</span> <span class="string">'./pages/index'</span>;</div><div class="line"><span class="keyword">import</span> officialDemo <span class="keyword">from</span> <span class="string">'./pages/officialDemo'</span>;</div><div class="line"><span class="keyword">import</span> colastyleDemo <span class="keyword">from</span> <span class="string">'./pages/colastyleDemo'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> &#123; createProvider &#125; = <span class="built_in">require</span>(<span class="string">'koa-cola'</span>);</div><div class="line"><span class="comment">// 使用koa-cola提供的createProvider会自动建立路由，如果手动使用官方的Provider，则需要开发者手动写router</span></div><div class="line"><span class="keyword">var</span> Provider = createProvider([IndexController], &#123;</div><div class="line">  index,</div><div class="line">  officialDemo,</div><div class="line">  colastyleDemo</div><div class="line">&#125;);</div><div class="line"></div><div class="line">render(&lt;Provider /&gt;, document.getElementById('app'));</div></pre></td></tr></table></figure>
+<p>wepack build 新建默认的项目得到的bundle的大小有400K，依赖的库组成如下图：<br>
+<img src="https://github.com/hcnode/koa-cola/raw/master/screenshots/bundle.png" alt="Drawing" width="800"></p>
 <p>webpack的配置文件默认加了四个IgnorePlugin插件，因为有些文件是前后端都会使用，所以需要忽略服务器端的require。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 以下两个是给服务器端使用，不能打包到webpack</span></div><div class="line"><span class="keyword">new</span> webpack.IgnorePlugin(<span class="regexp">/\.\/src\/app/</span>),</div><div class="line"><span class="keyword">new</span> webpack.IgnorePlugin(<span class="regexp">/\.\/src\/util\/injectGlobal/</span>),</div><div class="line"><span class="comment">// 以下两个是controller引用的，也是服务器端使用，也不能打包到webpack，如果你的controller也有服务器端使用的库，也必须要加IgnorePlugin插件</span></div><div class="line"><span class="keyword">new</span> webpack.IgnorePlugin(<span class="regexp">/koa$/</span>),</div><div class="line"><span class="keyword">new</span> webpack.IgnorePlugin(<span class="regexp">/koa-body$/</span>),</div></pre></td></tr></table></figure>
-<h3 id="server"><a href="#server" class="headerlink" title="server"></a>server</h3><p>koa-cola本身框架只编译了部分代码，比如es6的module import和export，ts类型相关的语法，对es6或者es7（比如async/await）没有进行编译，尽量用到node.js原生的es高级语法（所以会不支持低版本的node），如果你想希望你的应用在低版本node下使用，则需要你手动build出你所希望的代码，并包括所依赖的koa-cola库。</p>
+<h3>server</h3>
+<p>koa-cola本身框架只编译了部分代码，比如es6的module import和export，ts类型相关的语法，对es6或者es7（比如async/await）没有进行编译，尽量用到node.js原生的es高级语法（所以会不支持低版本的node），如果你想希望你的应用在低版本node下使用，则需要你手动build出你所希望的代码，并包括所依赖的koa-cola库。</p>
 <p>如果在node.js 8.0的环境下运行，则可以不需要任何编译，可以直接使用ts-node运行（cli运行命令都是使用ts-node），甚至可以直接<a href="https://github.com/TypeStrong/ts-node/issues/104" target="_blank" rel="external">线上使用</a></p>
 
     </div>
