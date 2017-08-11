@@ -17,11 +17,15 @@ koa-cola提供了一些有用的cli命令，包括新建项目、启动项目、
 
 `koa-cola cheer` 或者 `koa-cola c` 先build bundle，再launch app
 
-**windows环境使用koa-cola命令启动可能有问题，可以尝试以下方式启动**
+### build bundle
 
-* 先安装全局的ts-node `npm i ts-node -g`
-* 使用ts-node运行 `ts-node ./app.ts`
+`koa-cola build` 执行build命令，会自动寻找controller，并通过controller找到view，最后生成Provider，这个Provider会是webapck build js bundle的入口。
+
+**注意：这将会覆盖你的view/app.tsx**
+
+如果你需要收到维护你的app.tsx，那么你需要运行webpack命令而不是`koa-cola build`
 
 ### 生成model schema文件
 
 `koa-cola schema` 或者 `koa-cola s` 生成`api/schenmas`下面的model schema定义，保存在`typings/schema.ts`
+

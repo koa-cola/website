@@ -68,11 +68,9 @@
 <h3 id="创建koa-cola项目"><a href="#创建koa-cola项目" class="headerlink" title="创建koa-cola项目"></a>创建koa-cola项目</h3><p><code>koa-cola new app</code> 或者 <code>koa-cola n app</code> 在当前目录创建文件夹名字为app的模版项目，并自动安装依赖，和自动build bundle和启动应用。</p>
 <h3 id="启动应用"><a href="#启动应用" class="headerlink" title="启动应用"></a>启动应用</h3><p><code>koa-cola</code> 在项目目录里面执行，启动项目，node端启动app项目，但是不会build bundle</p>
 <p><code>koa-cola cheer</code> 或者 <code>koa-cola c</code> 先build bundle，再launch app</p>
-<p><strong>windows环境使用koa-cola命令启动可能有问题，可以尝试以下方式启动</strong></p>
-<ul>
-<li>先安装全局的ts-node <code>npm i ts-node -g</code></li>
-<li>使用ts-node运行 <code>ts-node ./app.ts</code></li>
-</ul>
+<h3 id="build-bundle"><a href="#build-bundle" class="headerlink" title="build bundle"></a>build bundle</h3><p><code>koa-cola build</code> 执行build命令，会自动寻找controller，并通过controller找到view，最后生成Provider，这个Provider会是webapck build js bundle的入口。</p>
+<p><strong>注意：这将会覆盖你的view/app.tsx</strong></p>
+<p>如果你需要收到维护你的app.tsx，那么你需要运行webpack命令而不是<code>koa-cola build</code></p>
 <h3 id="生成model-schema文件"><a href="#生成model-schema文件" class="headerlink" title="生成model schema文件"></a>生成model schema文件</h3><p><code>koa-cola schema</code> 或者 <code>koa-cola s</code> 生成<code>api/schenmas</code>下面的model schema定义，保存在<code>typings/schema.ts</code></p>
 
     </div>
