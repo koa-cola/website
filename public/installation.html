@@ -168,14 +168,7 @@
             
               <li>
               
-                <a href='/doc/config.html' style="padding:0px">config</a>
-                <ul class='nav' style="padding-top:0px">
-                  
-                    <li style="height:28px">
-                      <a href='/doc/config-env.html'>env</a>
-                    </li>
-                  
-                </ul>
+                 <a href='/doc/config.html'>config</a>
               
               </li>
             
@@ -220,15 +213,15 @@
           position: relative;
           margin-right: 10px;
       "><a href="https://github.com/koa-cola/website/blob/master/source/installation.md">修改</a></div>
-      <p>koa-cola支持node.js的版本包括7.6和8，建议使用8，因为8.0使用的最新的v8版本，而且8.0会在<a href="https://github.com/nodejs/LTS" target="_blank" rel="external">今年10月正式激活LTS</a>，因为koa-cola的async/await是原生方式使用没有经过transform成es6，所以不支持node7.6以下的node版本。</p>
+      <p>koa-cola支持node.js的版本包括7.6和8，建议使用8，因为8.0使用的最新的v8版本，而且8.0会在<a href="https://github.com/nodejs/LTS" target="_blank" rel="external">今年10月正式激活LTS</a>，因为koa-cola的async/await是原生方式使用没有经过transform，所以不支持node7.6以下的node版本。</p>
 <ul>
-<li><code>npm i koa-cola ts-node -g</code></li>
-<li><code>koa-cola new app</code> 在当前文件夹创建名字为app的新koa-cola项目，创建完整的目录结构，并自动安装依赖</li>
-<li><code>cd app</code></li>
-<li><code>koa-cola cheer</code> 执行webpack build bundle，并启动项目</li>
-<li>访问<a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a><br>
-(在开发环境，可以使用<code>npm run watch</code>和<code>npm run local</code>进行开发)</li>
+<li><code>npm i koa-cola ts-node -g</code> 安装全局koa-cola和ts-node</li>
+<li><code>koa-cola new koa-cola-app</code> 在当前文件夹创建名字为app的新koa-cola项目，创建完整的目录结构，并自动安装依赖</li>
+<li><code>cd koa-cola-app</code></li>
+<li><code>koa-cola dev</code> dev模式启动，build webpack bundle、launch项目、并自动打开浏览器</li>
 </ul>
+<p>视频演示：</p>
+<p><a href="http://www.koa-cola.com/doc/video/koa-cola-dev.mp4" target="_blank"><img src="http://www.koa-cola.com/doc/video/poster.png" width="500"></a></p>
 
     </div>
   </div>

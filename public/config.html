@@ -168,14 +168,7 @@
             
               <li>
               
-                <a href='/doc/config.html' class='active' style="padding:0px">config</a>
-                <ul class='nav' style="padding-top:0px">
-                  
-                    <li style="height:28px">
-                      <a href='/doc/config-env.html'>env</a>
-                    </li>
-                  
-                </ul>
+                 <a href='/doc/config.html' class='active'>config</a>
               
               </li>
             
@@ -220,7 +213,29 @@
           position: relative;
           margin-right: 10px;
       "><a href="https://github.com/koa-cola/website/blob/master/source/config.md">修改</a></div>
-      
+      <p>通过约定config目录下所有文件都会成为config的属性，运行时会被env环境下的配置覆盖，所有配置在app.config。</p>
+<pre><code>&gt; config
+    &gt; env
+        local.js
+        test.js
+        development.js
+    development.js
+    production.js
+    any_config_you_need.js 
+    ...
+</code></pre>
+<p>比如配置any_config_you_need.js</p>
+<pre><code>exports.module = {
+    foo : 'bar'
+}
+</code></pre>
+<p>如果当前是development环境，并且config/env/development.js:</p>
+<pre><code>exports.module = {
+    foo : 'wow'
+}
+</code></pre>
+<p>那么<code>app.config.foo == 'wow'</code></p>
+
     </div>
   </div>
   <div class='switch-page'>

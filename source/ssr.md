@@ -6,7 +6,13 @@ prev: index.html
 next: compare-next.html
 ---
 
-koa-cola是一个包括前后端全栈的框架，在服务器端，支持以react作为组件模板的方式直接渲染到浏览器端的SSR（Server Side Render）的架构，在浏览器端，支持react-router的bundle的SPA(Single Page Application）架构，SSR和SPA各有优缺点，SPA通过浏览器端router控制页面的跳转，交互体验更友好，但是对于搜索引擎不友好，所以支持SSR是无可避免的，对于开发者，开发koa-cola应用，不需要在写代码时候关心这段代码到底是SSR直渲还是SPA的异步，你只需要关心业务逻辑，koa-cola会帮助你解决代码在不同的环境运行。
+koa-cola是一个包括前后端全栈的框架。
+
+在服务器端，支持以react作为组件模板的方式直接渲染到浏览器端的SSR（Server Side Render）的架构。
+
+在浏览器端，支持react-router的bundle的SPA(Single Page Application）架构。
+
+SSR和SPA各有优缺点，SPA通过浏览器端router控制页面的跳转，交互体验更友好，但是对于搜索引擎不友好，所以支持SSR是无可避免的，对于开发者，开发koa-cola应用，不需要在写代码时候关心这段代码到底是SSR直渲还是SPA的异步，你只需要关心业务逻辑，koa-cola会帮助你解决代码在不同的环境运行。
 
 ```javascript
 @asyncConnect([

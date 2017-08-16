@@ -50,9 +50,6 @@
       title: responses
   - id: config
     title: config
-    items:
-    - id: config-env
-      title: env
   - id: public
     title: public 
   - id: views

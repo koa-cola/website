@@ -144,7 +144,7 @@ client端的redux
 
 ### http api和请求fetch
 
-在前面[Model](#model)的介绍，也说到过可以使用koa-cola定义的api基类来创建自己的api类，并使用api的fetch方法获取数据：
+在前面介绍，也说到过可以使用koa-cola定义的api基类来创建自己的api类，并使用api的fetch方法获取数据：
 
 ```javascript
 var api = new GetTodoList({});

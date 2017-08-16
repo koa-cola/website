@@ -168,14 +168,7 @@
             
               <li>
               
-                <a href='/doc/config.html' style="padding:0px">config</a>
-                <ul class='nav' style="padding-top:0px">
-                  
-                    <li style="height:28px">
-                      <a href='/doc/config-env.html'>env</a>
-                    </li>
-                  
-                </ul>
+                 <a href='/doc/config.html'>config</a>
               
               </li>
             
@@ -220,7 +213,10 @@
           position: relative;
           margin-right: 10px;
       "><a href="https://github.com/koa-cola/website/blob/master/source/views.md">修改</a></div>
-      
+      <p>views目录是mvc的view层目录，也是放置react组件的目录，在koa-cola react组件分两种：一种是<a href="/doc/views-pages.html">页面</a>，在views/pages下，另一种是<a href="/doc/views-components.html">组件</a>，在views/components下。</p>
+<p>views目录下的<a href="/doc/views-app.html">app.tsx</a>是整个app的bundle入口文件。</p>
+<p>views/pages/layout.ts是page最终在服务器端渲染的时候生成的html输入模板，如果没有此文件，则直接输入页面组件的html。</p>
+
     </div>
   </div>
   <div class='switch-page'>

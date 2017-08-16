@@ -168,14 +168,7 @@
             
               <li>
               
-                <a href='/doc/config.html' style="padding:0px">config</a>
-                <ul class='nav' style="padding-top:0px">
-                  
-                    <li style="height:28px">
-                      <a href='/doc/config-env.html'>env</a>
-                    </li>
-                  
-                </ul>
+                 <a href='/doc/config.html'>config</a>
               
               </li>
             
@@ -224,7 +217,7 @@
 <h2>数据初始化对比</h2>
 <p>在数据初始化，两者有点类似，next.js使用静态方法getInitialProps来初始化数据：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">static</span> <span class="keyword">async</span> getInitialProps (&#123; req &#125;) &#123;</div><div class="line">    <span class="keyword">return</span> req</div><div class="line">      ? &#123; <span class="attr">userAgent</span>: req.headers[<span class="string">'user-agent'</span>] &#125;</div><div class="line">      : &#123; <span class="attr">userAgent</span>: navigator.userAgent &#125;</div><div class="line">  &#125;</div><div class="line">  render () &#123;</div><div class="line">    <span class="keyword">return</span> &lt;div&gt;</div><div class="line">      Hello World &#123;this.props.userAgent&#125;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>koa-cola提供<a href="#tips-1-初始化react组件数据">两种方式</a>来进行数据初始化，更加灵活。</p>
+<p>koa-cola提供<a href="/doc/tip1-react-init.html">两种方式</a>来进行数据初始化，更加灵活。</p>
 <h2>子组件初始化</h2>
 <p>next.js不支持子组件的数据初始化：</p>
 <p>Note: getInitialProps can not be used in children components. Only in pages.</p>

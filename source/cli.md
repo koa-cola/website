@@ -15,7 +15,7 @@ koa-cola提供了一些有用的cli命令，包括新建项目、启动项目、
 
 `koa-cola` 在项目目录里面执行，启动项目，node端启动app项目，但是不会build bundle
 
-`koa-cola cheer` 或者 `koa-cola c` 先build bundle，再launch app
+`koa-cola dev` dev模式启动，build webpack bundle、launch项目、并自动打开浏览器
 
 ### build bundle
 

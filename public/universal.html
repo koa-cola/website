@@ -168,14 +168,7 @@
             
               <li>
               
-                <a href='/doc/config.html' style="padding:0px">config</a>
-                <ul class='nav' style="padding-top:0px">
-                  
-                    <li style="height:28px">
-                      <a href='/doc/config-env.html'>env</a>
-                    </li>
-                  
-                </ul>
+                 <a href='/doc/config.html'>config</a>
               
               </li>
             
@@ -255,7 +248,7 @@
 </ul>
 <p>如果你的组件会依赖浏览器的dom，如果是在以上生命周期里面调用，则在server端渲染时出错，所以避免出错，你需要判断当前环境，比如：<code>if(typeof window != 'undefined')</code>，或者你可以使用这个类似<a href="https://github.com/airbnb/enzyme/blob/master/docs/guides/jsdom.md" target="_blank" rel="external">模拟浏览器端方案</a>。</p>
 <h3>http api和请求fetch</h3>
-<p>在前面<a href="#model">Model</a>的介绍，也说到过可以使用koa-cola定义的api基类来创建自己的api类，并使用api的fetch方法获取数据：</p>
+<p>在前面介绍，也说到过可以使用koa-cola定义的api基类来创建自己的api类，并使用api的fetch方法获取数据：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> api = <span class="keyword">new</span> GetTodoList(&#123;&#125;);</div><div class="line"><span class="keyword">var</span> data = <span class="keyword">await</span> api.fetch(helpers.ctx);</div></pre></td></tr></table></figure>
 <p>上面代码也是可以兼容server端和服务器端，ajax库使用了<a href="https://github.com/mzabriskie/axios" target="_blank" rel="external">axios</a>，比如todolist demo有个react组件定义：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@asyncConnect([</div><div class="line">  &#123;</div><div class="line">    key: <span class="string">'todosData'</span>,</div><div class="line">    promise: <span class="keyword">async</span> (&#123; params, helpers, <span class="attr">store</span>: &#123; dispatch &#125; &#125;) =&gt; &#123;</div><div class="line">      <span class="keyword">var</span> api = <span class="keyword">new</span> GetTodoList(&#123;&#125;);</div><div class="line">      <span class="keyword">var</span> data = <span class="keyword">await</span> api.fetch(helpers.ctx);</div><div class="line">      <span class="keyword">return</span> data.result.result;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">])</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Page</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span>&lt;<span class="title">Props</span>, <span class="title">States</span>&gt; </span>&#123;</div><div class="line">  ...</div><div class="line">&#125;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> Page;</div></pre></td></tr></table></figure>

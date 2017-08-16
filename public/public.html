@@ -168,14 +168,7 @@
             
               <li>
               
-                <a href='/doc/config.html' style="padding:0px">config</a>
-                <ul class='nav' style="padding-top:0px">
-                  
-                    <li style="height:28px">
-                      <a href='/doc/config-env.html'>env</a>
-                    </li>
-                  
-                </ul>
+                 <a href='/doc/config.html'>config</a>
               
               </li>
             
@@ -220,7 +213,11 @@
           position: relative;
           margin-right: 10px;
       "><a href="https://github.com/koa-cola/website/blob/master/source/public.md">修改</a></div>
-      
+      <p>koa-cola默认的静态文件目录在public目录下，webpack默认的配置也是输出bundle到public目录，如果需要修改目录位置则需要修改koa中间件的配置。</p>
+<p>在api/middlewares添加koa-static：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">koaStatic</span> (<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">require</span>(<span class="string">'koa-static'</span>)(<span class="string">'path/to/static'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后在config下新建middlewares.js:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">	middlewares : &#123;</div><div class="line">		<span class="string">'koa-static'</span> : <span class="literal">true</span></div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
     </div>
   </div>
   <div class='switch-page'>

@@ -28,7 +28,7 @@ export default class extends React.Component {
 }
 ```
 
-koa-cola提供[两种方式](#tips-1-初始化react组件数据)来进行数据初始化，更加灵活。
+koa-cola提供[两种方式](/doc/tip1-react-init.html)来进行数据初始化，更加灵活。
 
 ## 子组件初始化
 

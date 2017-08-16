@@ -168,14 +168,7 @@
             
               <li>
               
-                <a href='/doc/config.html' style="padding:0px">config</a>
-                <ul class='nav' style="padding-top:0px">
-                  
-                    <li style="height:28px">
-                      <a href='/doc/config-env.html'>env</a>
-                    </li>
-                  
-                </ul>
+                 <a href='/doc/config.html'>config</a>
               
               </li>
             
@@ -225,7 +218,7 @@
 <p><code>koa-cola new app</code> 或者 <code>koa-cola n app</code> 在当前目录创建文件夹名字为app的模版项目，并自动安装依赖，和自动build bundle和启动应用。</p>
 <h3>启动应用</h3>
 <p><code>koa-cola</code> 在项目目录里面执行，启动项目，node端启动app项目，但是不会build bundle</p>
-<p><code>koa-cola cheer</code> 或者 <code>koa-cola c</code> 先build bundle，再launch app</p>
+<p><code>koa-cola dev</code> dev模式启动，build webpack bundle、launch项目、并自动打开浏览器</p>
 <h3>build bundle</h3>
 <p><code>koa-cola build</code> 执行build命令，会自动寻找controller，并通过controller找到view，最后生成Provider，这个Provider会是webapck build js bundle的入口。</p>
 <p><strong>注意：这将会覆盖你的view/app.tsx</strong></p>

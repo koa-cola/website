@@ -168,14 +168,7 @@
             
               <li>
               
-                <a href='/doc/config.html' style="padding:0px">config</a>
-                <ul class='nav' style="padding-top:0px">
-                  
-                    <li style="height:28px">
-                      <a href='/doc/config-env.html'>env</a>
-                    </li>
-                  
-                </ul>
+                 <a href='/doc/config.html'>config</a>
               
               </li>
             
@@ -220,7 +213,9 @@
           position: relative;
           margin-right: 10px;
       "><a href="https://github.com/koa-cola/website/blob/master/source/api-schemas.md">修改</a></div>
-      
+      <p>无论是使用mongodb还是其他数据库，不可避免需要定义数据的schema，使用单独定义schema的方式，好处是可以前后端都可以使用。</p>
+<p>启动app后服务器端就可以使用app.schemas的方式获取schema对象，浏览器端则可以直接使用require获取schema对象。</p>
+
     </div>
   </div>
   <div class='switch-page'>
