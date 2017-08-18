@@ -18,7 +18,7 @@ next: tip6-compile.html
     "args": [],
     "runtimeArgs": [
         "-r", "ts-node/register",
-        "${workspaceRoot}/app.tsx"
+        "${workspaceRoot}/app.ts"
     ],
     "sourceMaps": true,
     "console": "internalConsole",
