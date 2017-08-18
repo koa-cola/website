@@ -29,13 +29,18 @@ class FooController {
 ## 在redux-connect封装的react组件初始化数据
 ```javascript
 const {asyncConnect} = require('koa-cola').Decorators.view;
+
+// 变量描述
+export interface Props {
+    foo: string;   
+}
+export interface States {}
+
 @asyncConnect([
   {
     key: 'foo',
     promise: async ({ params, helpers, store: { dispatch } }) => {
-        return await Promise.resolve({
-            foo : 'bar'
-        });
+        return await Promise.resolve('bar');
     }
   }
 ])
