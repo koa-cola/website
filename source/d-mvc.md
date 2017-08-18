@@ -12,7 +12,7 @@ koa-cola可以使用es7的decorator装饰器开发模式来写mvc，controller�
 使用decorator装饰器来注入相关依赖，路由层的decorators包括router、中间件、response、view，响应阶段的decorators包括koa.Context、param、response、request等，比如以下例子：
 
 ```javascript
-var { Controller, Get, Use, Param, Body, Delete, Put, Post, QueryParam, View, Ctx, Response } = require('koa-cola').Decorators.controller;
+const { Controller, Get, Use, Param, Body, Delete, Put, Post, QueryParam, View, Ctx, Response } = require('koa-cola').Decorators.controller;
 @Controller('') 
 class FooController {
     @Get('/some_api')  // 定义router以及method
@@ -71,7 +71,7 @@ view层可以是简单的React.Component或者是stateless的函数组件，也�
 
 ```javascript
     import { connect } from 'react-redux'
-    var Index = function({some_props}) {
+    const Index = function({some_props}) {
         return <h1>Wow koa-cola!</h1>
     }
     export default connect(
@@ -90,7 +90,7 @@ view层可以是简单的React.Component或者是stateless的函数组件，也�
 import AddTodo from '../official-demo/containers/AddTodo';
 import FilterLink from '../official-demo/containers/FilterLink';
 import VisibleTodoList from '../official-demo/containers/VisibleTodoList';
-var {
+const {
   asyncConnect,
   colaReducer,
   include
@@ -99,8 +99,8 @@ var {
   {
     key: 'todosData',
     promise: async ({ params, helpers, store: { dispatch } }) => {
-      var api = new GetTodoList({});
-      var data = await api.fetch(helpers.ctx);
+      const api = new GetTodoList({});
+      const data = await api.fetch(helpers.ctx);
       dispatch({
         type: 'INIT_TODO',
         data: data.result.result
@@ -131,7 +131,7 @@ koa-cola渲染页面时，默认会找views/pages/layout.ts封装页面的html�
 
 ```javascript
 import * as React from 'react';
-var {
+const {
   header, bundle, doNotUseLayout
 } = require('../../../dist').Decorators.view;
 @doNotUseLayout
@@ -164,7 +164,7 @@ export default mongoose.model('user', new mongoose.Schema({
 
 然后就可以在其他代码里面使用：
 ```javascript
-var user = await app.models.user.find({name : 'harry'})
+const user = await app.models.user.find({name : 'harry'})
 ```
 
 #### 使用koa-cola的风格写model
@@ -195,7 +195,7 @@ export default mongoose.model('user', new mongoose.Schema(userSchema(mongoose)))
 
 ```javascript
 import { todoListSchema } from '../schemas/todoList';
-var { model } = app.decorators.model;
+const { model } = app.decorators.model;
 
 @model(todoListSchema(app.mongoose))
 export default class TodoList {}
@@ -208,7 +208,7 @@ export default class TodoList {}
 然后你可以在代码通过使用typescript的类型定义，享受vscode的intellisense带来的乐趣
 ```javascript
 import {userSchema} from './typings/schema' 
-var user : userSchema = await app.models.user.find({name : 'harry'})
+const user : userSchema = await app.models.user.find({name : 'harry'})
 ```
 
 在前面提到的为什么需要在api/schemas定义model的schema，除了上面可以自动生成schema的接口，这部分可以在浏览器端代码复用，比如数据Validate。详细可以查看[文档](http://mongoosejs.com/docs/browser.html)
@@ -241,8 +241,8 @@ export class GetTodoList extends ApiBase<
 
 在代码里面使用api，并享受ts带来的乐趣：
 ```javascript
-var api = new GetTodoList({});
-var data = await api.fetch(helpers.ctx);
+const api = new GetTodoList({});
+const data = await api.fetch(helpers.ctx);
 ```
 
 <img src="https://github.com/hcnode/koa-cola/raw/master/screenshots/api1.png" alt="Drawing" width="600"/>

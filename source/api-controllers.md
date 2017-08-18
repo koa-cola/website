@@ -10,7 +10,7 @@ controller类保存的目录，controller类必须是基于`require('koa-cola/di
 ## 提供api接口的controller
 
 ```javascript
-var { Controller, Get, Post, Body, Ctx,  Response } = require('koa-cola/dist/client').Decorators.controller;
+const { Controller, Get, Post, Body, Ctx,  Response } = require('koa-cola/dist/client').Decorators.controller;
 
 @Controller('')
 export default class {
@@ -29,7 +29,7 @@ export default class {
 
 ## page view的controller
 ```javascript
-var { Controller, Get, Post, Body, Ctx,  Response } = require('koa-cola/dist/client').Decorators.controller;
+const { Controller, Get, Post, Body, Ctx,  Response } = require('koa-cola/dist/client').Decorators.controller;
 
 @Controller('')
 export default class {
@@ -73,7 +73,7 @@ koa-cola提供一些比较好用的装饰器。
 
 使用Response装饰器
 ```javascript
-  var Ok = function Ok(ctx, data){
+  const Ok = function Ok(ctx, data){
       ctx.status = 200;
       if(data){
           ctx.body = {
