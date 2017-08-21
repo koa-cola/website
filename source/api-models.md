@@ -12,7 +12,7 @@ next: api-schemas.html
 
 ```javascript
 import {model} from 'mongoose-decorators';
-var todoSchema = new app.mongoose.Schema({
+const todoSchema = new app.mongoose.Schema({
     name : String,
     completed : Boolean
 })

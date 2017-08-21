@@ -6,7 +6,8 @@
     "version": "3.3.8"
   },
   "scripts": {
-    "deploy": "hexo generate && hexo deploy"
+    "deploy": "hexo generate && hexo deploy",
+    "gen":"hexo generate"
   },
   "dependencies": {
     "github-markdown-css": "^2.8.0",

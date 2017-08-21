@@ -11,7 +11,7 @@ views/app.tsx是浏览器端bundle的webpack入口文件，app.tsx可以手动�
 你可以手动维护这个文件，手动创建Provider和Router，并提供store：
 
 ```javascript
-var store = ...
+const store = ...
 <Provider store={store} key="provider">
     <Router history={browserHistory}>
         <Route ... />
@@ -21,7 +21,7 @@ var store = ...
 
 如果要使用服务器端的redux初始化数据，你需要正确的创建store：
 ```javascript
-var { ReduxAsyncConnect, asyncConnect, reducer } = require("koa-cola/dist/client").Decorators.view;
+const { ReduxAsyncConnect, asyncConnect, reducer } = require("koa-cola/dist/client").Decorators.view;
 // 使用__data 作为redux的初始化数据
 const store = createStore(combineReducers(Object.assign({ reduxAsyncConnect: reducer }, ...custom_reducer))
     , (window as any).__data);

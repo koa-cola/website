@@ -89,7 +89,7 @@ class Page extends React.Component<Props, States>   {
 
 ```javascript
 import { connect } from 'react-redux'
-var Index = function({some_props}) {
+const Index = function({some_props}) {
     return <h1>Wow koa-cola!</h1>
 }
 export default connect(
@@ -101,7 +101,7 @@ export default connect(
 或者是经过redux-connect封装的react-redux:
 
 ```javascript
-var {
+const {
     asyncConnect,
 } = require('koa-cola').Decorators.view;
 
@@ -147,8 +147,8 @@ client端的redux
 在前面介绍，也说到过可以使用koa-cola定义的api基类来创建自己的api类，并使用api的fetch方法获取数据：
 
 ```javascript
-var api = new GetTodoList({});
-var data = await api.fetch(helpers.ctx);
+const api = new GetTodoList({});
+const data = await api.fetch(helpers.ctx);
 ```
 
 上面代码也是可以兼容server端和服务器端，ajax库使用了[axios](https://github.com/mzabriskie/axios)，比如todolist demo有个react组件定义：
@@ -158,8 +158,8 @@ var data = await api.fetch(helpers.ctx);
   {
     key: 'todosData',
     promise: async ({ params, helpers, store: { dispatch } }) => {
-      var api = new GetTodoList({});
-      var data = await api.fetch(helpers.ctx);
+      const api = new GetTodoList({});
+      const data = await api.fetch(helpers.ctx);
       return data.result.result;
     }
   }

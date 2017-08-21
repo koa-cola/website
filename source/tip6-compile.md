@@ -6,7 +6,7 @@ prev: tip5-debug.html
 ---
 
 
-### client
+### 客户端
 前端的bundle build使用webpack来构建，使用cli命令创建项目，会自动生成[webpack配置](https://github.com/hcnode/koa-cola/blob/master/template/webpack.config.js)
 ts文件的loader使用了[awesome-typescript-loader](https://github.com/s-panferov/awesome-typescript-loader)，并配置了使用babel，加入babel-polyfill到bundle，可以兼容ie9+。
 
@@ -14,14 +14,16 @@ webpack的入口tsx文件在项目里面的`view/app.tsx`:
 ```javascript
 import * as React from 'react';
 import { render } from 'react-dom';
+
 import IndexController from '../api/controllers/IndexController';
+// 以下是3个view(react component)的入口。
 import index from './pages/index';
 import officialDemo from './pages/officialDemo';
 import colastyleDemo from './pages/colastyleDemo';
 
-var { createProvider } = require('koa-cola');
+const { createProvider } = require('koa-cola');
 // 使用koa-cola提供的createProvider会自动建立路由，如果手动使用官方的Provider，则需要开发者手动写router
-var Provider = createProvider([IndexController], {
+const Provider = createProvider([IndexController], {
   index,
   officialDemo,
   colastyleDemo
@@ -45,7 +47,9 @@ new webpack.IgnorePlugin(/koa-body$/),
 ```
 
 
-### server
-koa-cola本身框架只编译了部分代码，比如es6的module import和export，ts类型相关的语法，对es6或者es7（比如async/await）没有进行编译，尽量用到node.js原生的es高级语法（所以会不支持低版本的node），如果你想希望你的应用在低版本node下使用，则需要你手动build出你所希望的代码，并包括所依赖的koa-cola库。
+### 服务器端
+koa-cola框架使用typescript编写，生产环境的代码是使用最新的js标准语法(需node7.6及以上)，即只编译代码的`import export`、ts语法，并未编译es6或es7（比如async/await），所以将不支持低版本的node。
 
-如果在node.js 8.0的环境下运行，则可以不需要任何编译，可以直接使用ts-node运行（cli运行命令都是使用ts-node），甚至可以直接[线上使用](https://github.com/TypeStrong/ts-node/issues/104)
+如需在低版本node的环境下使用，请您自己修改[typescript编译设置](https://www.typescriptlang.org/docs/handbook/compiler-options.html)，编译koa-cola框架的代码。
+
+如果在node.js 7.6及以上的环境下运行，则可以直接引用，用过ts-node运行（cli运行命令都是使用ts-node），甚至可以直接[线上使用](https://github.com/TypeStrong/ts-node/issues/104)

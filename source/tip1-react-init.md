@@ -12,7 +12,7 @@ koa-cola提供两种方式初始化react。
 初始化数据，数据将会注入到react组件的props.ctrl，如：this.props.ctrl.foo
 
 ```javascript
-var { Controller, Get, Use, Param, Body, Delete, Put, Post, QueryParam, View, Ctx, Response } = require('koa-cola').Decorators.controller;
+const { Controller, Get, Use, Param, Body, Delete, Put, Post, QueryParam, View, Ctx, Response } = require('koa-cola').Decorators.controller;
 @Controller('') 
 class FooController {
     @Get('/some_page')  
@@ -28,14 +28,19 @@ class FooController {
 
 ## 在redux-connect封装的react组件初始化数据
 ```javascript
-var {asyncConnect} = require('koa-cola').Decorators.view;
+const {asyncConnect} = require('koa-cola').Decorators.view;
+
+// 变量描述
+export interface Props {
+    foo: string;   
+}
+export interface States {}
+
 @asyncConnect([
   {
     key: 'foo',
     promise: async ({ params, helpers, store: { dispatch } }) => {
-        return await Promise.resolve({
-            foo : 'bar'
-        });
+        return await Promise.resolve('bar');
     }
   }
 ])
