@@ -6,7 +6,7 @@ prev: api-responses.html
 next: config-env.html
 ---
 
-# global.app.config
+## global.app.config
 
 通过约定`/config/`一级目录下所有的js文件都会成为 `app.config` 的属性，运行时会被 env 环境对应的`/config/env/`下的js配置覆盖。
 
@@ -43,9 +43,9 @@ exports.module = {
 那么`any_config_you_need.js`的`foo`就会被覆盖：`app.config.foo === 'wow'`
 
 
-# 默认配置
+## 默认配置
 
-## config.middlewares
+### config.middlewares
 
   自定 koa 中间件的开关。
 
