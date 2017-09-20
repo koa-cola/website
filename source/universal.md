@@ -8,7 +8,7 @@ next: d-mvc.html
 
 ### 前后端router
 
-通过controller生成server端的react-router，并且也生成client端的react-reduxt的Provider(里面还是封装了react-router)
+通过controller生成server端的react-router，并且也生成client端的react-redux的Provider(里面还是封装了react-router)
 
 ```javascript
 @Controller('') 
@@ -151,7 +151,7 @@ const api = new GetTodoList({});
 const data = await api.fetch(helpers.ctx);
 ```
 
-上面代码也是可以兼容server端和服务器端，ajax库使用了[axios](https://github.com/mzabriskie/axios)，比如todolist demo有个react组件定义：
+上面代码可以兼容服务器端和客户端，ajax库使用了[axios](https://github.com/mzabriskie/axios)，比如 [todolist demo](https://github.com/koa-cola/todolist) 有个react组件定义：
 
 ```javascript
 @asyncConnect([
@@ -169,4 +169,4 @@ class Page extends React.Component<Props, States> {
 }
 export default Page;
 ```
-如果该组件的路由是服务器端直接渲染，则`api.fetch`会在服务器端调用，如果该组件是在浏览器端的<Link>跳转，则`api.fetch`会在浏览器端调用。
+如果该组件的路由是服务器端直接渲染，则`api.fetch`会在服务器端调用，如果该组件是在浏览器端的`<Link>`跳转，则`api.fetch`会在浏览器端调用。
