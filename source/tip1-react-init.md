@@ -28,7 +28,7 @@ class FooController {
 
 ## 在redux-connect封装的react组件初始化数据
 ```javascript
-const {asyncConnect} = require('koa-cola').Decorators.view;
+const {Cola} = require('koa-cola/dist/client').Decorators.view;
 
 // 变量描述
 export interface Props {
@@ -36,14 +36,13 @@ export interface Props {
 }
 export interface States {}
 
-@asyncConnect([
-  {
-    key: 'foo',
-    promise: async ({ params, helpers, store: { dispatch } }) => {
+@Cola({
+  initData : {
+    foo : async ({ params, helpers, store: { dispatch } }) => {
         return await Promise.resolve('bar');
     }
   }
-])
+})
 class Some_Page extends React.Component<Props, States> {
   constructor(props: Props) {
     super(props);
