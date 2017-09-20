@@ -48,7 +48,7 @@ new webpack.IgnorePlugin(/koa-body$/),
 
 
 ### 服务器端
-koa-cola框架使用typescript编写，生产环境的代码是使用最新的js标准语法(需node7.6及以上)，即只编译代码的`import export`、ts语法，并未编译es6或es7（比如async/await），所以将不支持低版本的node。
+koa-cola框架使用typescript编写，生产环境的代码是使用最新的js标准语法(需node7.6及以上)，即只编译代码的`import export`、ts语法，并未编译es6或es7（比如async/await），所以将不支持低版本的node。
 
 如需在低版本node的环境下使用，请您自己修改[typescript编译设置](https://www.typescriptlang.org/docs/handbook/compiler-options.html)，编译koa-cola框架的代码。
 

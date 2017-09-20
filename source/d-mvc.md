@@ -80,38 +80,37 @@ view层可以是简单的React.Component或者是stateless的函数组件，也�
     )(Index)
 ```
 
-#### redux-connect的decorator
+#### Cola 装饰器组件
+使用Cola装饰器来封装基于react-redux的组件
 使用这种方式的话，需要注意两点：
-* redux的reducer需要使用装饰器colaReducer
 * 如果有子组件也是使用redux-connect封装，则需要使用装饰器include
-* 以上两点可以参考todolist的[代码](https://github.com/koa-cola/todolist/blob/master/views/pages/colastyleDemo.tsx)
+
+参考todolist的[代码](https://github.com/koa-cola/todolist/blob/master/views/pages/colastyleDemo.tsx)
 
 ```javascript
 import AddTodo from '../official-demo/containers/AddTodo';
 import FilterLink from '../official-demo/containers/FilterLink';
 import VisibleTodoList from '../official-demo/containers/VisibleTodoList';
 const {
-  asyncConnect,
-  colaReducer,
+  Cola
   include
 } = require('koa-cola').Decorators.view;
-@asyncConnect([
-  {
-    key: 'todosData',
-    promise: async ({ params, helpers, store: { dispatch } }) => {
-      const api = new GetTodoList({});
-      const data = await api.fetch(helpers.ctx);
-      dispatch({
-        type: 'INIT_TODO',
-        data: data.result.result
-      });
-      return data.result.result;
+@Cola({
+    initData : {
+        todosData : async ({ params, helpers, store: { dispatch } }) => {
+            const api = new GetTodoList({});
+            const data = await api.fetch(helpers.ctx);
+            dispatch({
+                type: 'INIT_TODO',
+                data: data.result.result
+            });
+            return data.result.result;
+        }
+    },
+    reducer : {
+        todos,
+        visibilityFilter
     }
-  }
-])
-@colaReducer({
-  todos,
-  visibilityFilter
 })
 @include({ AddTodo, FilterLink, VisibleTodoList })
 class ColastyleDemo extends React.Component<Props, States> {
