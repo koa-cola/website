@@ -110,7 +110,7 @@ import VisibleTodoList from '../official-demo/containers/VisibleTodoList';
 const {
   Cola
   include
-} = require('koa-cola').Decorators.view;
+} = require('koa-cola/client');
 @Cola({
     initData : {
         todosData : async ({ params, helpers, store: { dispatch } }) => {
@@ -148,7 +148,7 @@ koa-cola 渲染页面时，默认会找`views/pages/layout.ts`封装页面的 ht
 import * as React from 'react';
 const {
   header, bundle, doNotUseLayout
-} = require('../../../dist').Decorators.view;
+} = require('koa-cola/client');
 @doNotUseLayout
 @bundle([
   "/bundle.js",

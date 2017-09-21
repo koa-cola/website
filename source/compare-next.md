@@ -44,7 +44,7 @@ import * as React from 'react';
 const {
   Cola,
   include
-} = require('koa-cola').Decorators.view;
+} = require('koa-cola/client');
 // Child1, Child2 是react-redux的组件，并且会进行数据初始化
 const Child1 = require('../components/child1').default;
 const Child2 = require('../components/child2').default;
