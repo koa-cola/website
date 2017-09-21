@@ -101,7 +101,7 @@ export default connect(
 或者是经过redux-connect封装的react-redux:
 
 ```javascript
-const {Cola} = require('koa-cola/dist/client').Decorators.view;
+const {Cola} = require('koa-cola/client');
 
 @Cola({
     initData : {

@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charSet='utf-8' />
-  <title>ko-cola - 调试</title>
+  <title>ko-cola - 装饰器</title>
   <link href='/doc/css/docs.css' rel='stylesheet'>
   <link href='/doc/css/github-markdown.css' rel='stylesheet'>
   <script>
@@ -124,7 +124,7 @@
             
               <li>
               
-                 <a href='/doc/tip5-debug.html' class='active'>调试</a>
+                 <a href='/doc/tip5-debug.html'>调试</a>
               
               </li>
             
@@ -206,27 +206,22 @@
   </div>
   <div class='page'>
     <div class='page-content'>
-      <h1>调试</h1>
+      <h1>装饰器</h1>
       <div style="
           float: right;
           top: -60px;
           position: relative;
           margin-right: 10px;
-      "><a href="https://github.com/koa-cola/website/blob/master/source/tip5-debug.md">修改</a></div>
-      <p>如果需要调试koa-cola项目，需要添加两个依赖<code>npm i ts-node typescript -S</code>，然后在vscode新建调试配置：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"name"</span>: <span class="string">"DebugApp"</span>,</div><div class="line">    <span class="attr">"type"</span>: <span class="string">"node"</span>,</div><div class="line">    <span class="attr">"request"</span>: <span class="string">"launch"</span>,</div><div class="line">    <span class="attr">"program"</span>: <span class="string">"$&#123;workspaceRoot&#125;/node_modules/ts-node/dist/_bin.js"</span>,</div><div class="line">    <span class="attr">"stopOnEntry"</span>: <span class="literal">false</span>,</div><div class="line">    <span class="attr">"args"</span>: [],</div><div class="line">    <span class="attr">"runtimeArgs"</span>: [</div><div class="line">        <span class="string">"-r"</span>, <span class="string">"ts-node/register"</span>,</div><div class="line">        <span class="string">"$&#123;workspaceRoot&#125;/app.ts"</span></div><div class="line">    ],</div><div class="line">    <span class="attr">"sourceMaps"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"console"</span>: <span class="string">"internalConsole"</span>,</div><div class="line">    <span class="attr">"internalConsoleOptions"</span>: <span class="string">"openOnSessionStart"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>便可享受vscode的调试ts的乐趣。</p>
-<p>另外，koa-cola加了redux调试支持，你也可以使用chrome的redux插件调试：</p>
-<p><img src="https://github.com/hcnode/koa-cola/raw/master/screenshots/dev-tool.png" alt="Drawing" width="600"></p>
-
+      "><a href="https://github.com/koa-cola/website/blob/master/source/decorators.md">修改</a></div>
+      
     </div>
   </div>
   <div class='switch-page'>
     
-      <a class='previous' href='/doc/tip4-cluster.html'>Previous</a>
+      <a class='previous' href='/doc/installation.html'>Previous</a>
     
     
-      <a class='next' href='/doc/tip6-compile.html'>Next</a>
+      <a class='next' href='/doc/cli.html'>Next</a>
     
   </div>
 </body>

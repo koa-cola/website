@@ -14,7 +14,7 @@ koa-cola可以使用es7的decorator装饰器开发模式来写mvc，controller�
 ```javascript
 const { 
     Controller, Get, Use, Param, Body, Delete, Put, Post, QueryParam, View, Ctx, Response 
-} = require('koa-cola').Decorators.controller;
+} = require('koa-cola/client');
 import Ok from '../responses/ok';
 
 @Controller('') 

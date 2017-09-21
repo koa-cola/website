@@ -12,7 +12,7 @@ next: tip3-inject-global.html
 下面例子，定义了初始化的props属性foo，然后mapStateToProps也定义了返回的props.foo的新value，但是，其实dispatch后props.foo还是最开始的"bar"，而不是"bar again"。
 
 ```javascript
-const {Cola, store} = require('koa-cola/dist/client').Decorators.view;
+const {Cola, store} = require('koa-cola/client');
 @Cola({
     initData : {
         foo : async ({ params, helpers, store: { dispatch } }) => {

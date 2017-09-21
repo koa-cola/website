@@ -213,28 +213,34 @@
           position: relative;
           margin-right: 10px;
       "><a href="https://github.com/koa-cola/website/blob/master/source/config.md">修改</a></div>
-      <p>通过约定config目录下所有文件都会成为config的属性，运行时会被env环境下的配置覆盖，所有配置在app.config。</p>
+      <h2>global.app.config</h2>
+<p>通过约定<code>/config/</code>一级目录下所有的js文件都会成为 <code>app.config</code> 的属性，运行时会被 env 环境对应的<code>/config/env/</code>下的js配置覆盖。</p>
 <pre><code>&gt; config
     &gt; env
         local.js
         test.js
         development.js
-    development.js
-    production.js
+        production.js
+    bootstrap.js
+    middlewares.js
+    model.js
     any_config_you_need.js 
     ...
 </code></pre>
-<p>比如配置any_config_you_need.js</p>
-<pre><code>exports.module = {
-    foo : 'bar'
-}
-</code></pre>
-<p>如果当前是development环境，并且config/env/development.js:</p>
-<pre><code>exports.module = {
-    foo : 'wow'
-}
-</code></pre>
-<p>那么<code>app.config.foo == 'wow'</code></p>
+<p>比如配置 any_config_you_need.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">exports.module = &#123;</div><div class="line">  foo : <span class="string">'bar'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>那么<code>app.config.foo === 'bar'</code></p>
+<p>如果当前是development环境，并且 config/env/development.js 定义以下:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">exports.module = &#123;</div><div class="line">  foo : <span class="string">'wow'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>那么<code>any_config_you_need.js</code>的<code>foo</code>就会被覆盖：<code>app.config.foo === 'wow'</code></p>
+<h2>默认配置</h2>
+<h3>config.middlewares</h3>
+<p>自定 koa 中间件的开关。</p>
+<p>cola加载koa中间件时，会根据此配置进行中间件加载。假如没定义此配置，将直接使用默认的中间件。</p>
+<p>cola根据此配置，在<code>/api/middlewares/**</code>定义中间件里抽取加载。</p>
+<p>例如<code>/config/</code>下新增文件<code>myMiddleWares.js</code>, 添加以下代码：</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  middlewares: &#123;</div><div class="line">    <span class="string">"middleware1"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="string">"koa-static"</span>: <span class="literal">false</span></div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>那么koa将加载<code>/api/middlewares/middleware1.js</code>中间件，以及cola默认的中间件, 但会把默认加入的<code>koa-static</code>中间件去除。</p>
 
     </div>
   </div>
