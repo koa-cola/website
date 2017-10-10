@@ -74,6 +74,12 @@
             
               <li>
               
+                 <a href='/doc/decorators.html'>装饰器</a>
+              
+              </li>
+            
+              <li>
+              
                  <a href='/doc/cli.html'>Cli命令</a>
               
               </li>
@@ -213,8 +219,9 @@
           position: relative;
           margin-right: 10px;
       "><a href="https://github.com/koa-cola/website/blob/master/source/tip4-cluster.md">修改</a></div>
-      <p>如果你想使用cluster模式，koa-cola提供了pm2的配置文件，使用cli新建项目时候会生成这个配置文件，启动方式使用：<code>pm2 start pm2.config.js</code></p>
-
+      <p>如果想使用cluster模式，koa-cola提供了pm2的配置文件，使用cli新建项目时候会生成这个配置文件，启动方式使用：<code>pm2 start pm2.config.js</code></p>
+<p>或者你可以自定义pm2的配置，配置interpreter参数为ts-node</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    name: <span class="string">'koa-cola-app'</span>,</div><div class="line">    script: __dirname + <span class="string">'/app.ts'</span>,</div><div class="line">    instances: <span class="number">2</span>,</div><div class="line">    interpreter: <span class="string">'ts-node'</span>,</div><div class="line">    exec_mode: <span class="string">'cluster'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
     </div>
   </div>
   <div class='switch-page'>
