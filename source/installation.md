@@ -25,7 +25,7 @@ next: cli.html
 
 <a href="http://www.koa-cola.com/doc/video/koa-cola-dev.mp4" target="_blank"><img src="http://www.koa-cola.com/doc/video/poster.png" width="500" /></a>
 
-## 使用路由装饰器创建路由，并返回json数据
+### 使用路由装饰器创建路由，并返回json数据
 
 `api/controllers/any_controller.ts`
 
@@ -43,6 +43,100 @@ export default class  {
 }
 ```
 
+### 使用路由装饰器创建路由，并通过react page组件渲染
 
+#### 渲染静态组件
 
+`api/controllers/any_controller.ts`
+
+```javascript
+var { Controller, Get, View } = require('koa-cola/client');
+
+@Controller('/')
+export default class  {
+    @Get('index')
+    @View('index')
+    index ( ) {}
+}
+```
+
+`views/pages/index.tsx`
+```javascript
+import * as React from 'react';
+export default function() {
+    return <div>
+        Wow koa-cola!
+    </div>
+};
+```
+
+#### 渲染数据依赖组件方法1
+
+`api/controllers/any_controller.ts`
+
+```javascript
+var { Controller, Get, View } = require('koa-cola/client');
+
+@Controller('/')
+export default class  {
+    @Get('index')
+    @View('index')
+    index async () {
+        return {
+            foo : await Promise.resolve('bar')
+        }
+    }
+}
+```
+
+`views/pages/index.tsx`
+
+```javascript
+import * as React from 'react';
+export default function({ctrl : {foo}}) {
+    return <div>
+        {foo}
+    </div>
+};
+```
+
+#### 渲染数据依赖组件方法2
+
+`api/controllers/any_controller.ts`
+
+```javascript
+var { Controller, Get, View } = require('koa-cola/client');
+
+@Controller('/')
+export default class  {
+    @Get('index')
+    @View('index')
+    index async () {}
+}
+```
+
+`views/pages/index.tsx`
+
+```javascript
+import * as React from 'react';
+var { Cola } = require('koa-cola/client')
+
+@Cola({
+    initData : {
+        foo : async ({ params, helpers }) => {
+            return await Promise.resolve('bar');
+        }
+    }
+})
+export default class Page extends React.Component<Props, States>   {
+  constructor(props: Props) {
+      super(props);
+  }
+  render() {
+    return <div>
+      <div>{this.props.foo}</div>
+    </div>
+  }
+};
+```
 

@@ -214,14 +214,16 @@
           margin-right: 10px;
       "><a href="https://github.com/koa-cola/website/blob/master/source/installation.md">修改</a></div>
       <!-- koa-cola支持node.js的版本包括7.6和8，建议使用8，因为8.0使用的最新的v8版本，而且8.0会在[今年10月正式激活LTS](https://github.com/nodejs/LTS)，因为koa-cola的async/await是原生方式使用没有经过transform，所以不支持node7.6以下的node版本。 -->
-<h1>创建项目</h1>
-<h2>安装全局koa-cola, ts-node, typescript</h2>
-<p><code>npm i koa-cola ts-node typescript -g</code></p>
-<h2>在当前文件夹创建名字为app的新koa-cola项目，创建完整的目录结构，并自动安装依赖</h2>
-<p><code>koa-cola new app</code></p>
-<h2>dev的开发模式启动项目，生成 webpack bundle、启动项目、并自动打开浏览器，并自动watch源码，当源码有修改，bundle js和ssr服务器端渲染都会自动重新加载module</h2>
-<p><code>cd koa-cola-app</code><br>
-<code>koa-cola dev</code></p>
+<h2>创建项目</h2>
+<ul>
+<li><p><strong>安装全局koa-cola, ts-node, typescript</strong><br>
+<code>npm i koa-cola ts-node typescript -g</code></p></li>
+<li><p><strong>在当前文件夹创建名字为app的新koa-cola项目，创建完整的目录结构，并自动安装依赖</strong><br>
+<code>koa-cola new app</code></p></li>
+<li><p><strong>dev的开发模式启动项目，生成 webpack bundle、启动项目、并自动打开浏览器，并自动watch源码，当源码有修改，bundle js和ssr服务器端渲染都会自动重新加载module</strong><br>
+<code>cd koa-cola-app</code><br>
+<code>koa-cola dev</code></p></li>
+</ul>
 <p>视频演示：</p>
 <p><a href="http://www.koa-cola.com/doc/video/koa-cola-dev.mp4" target="_blank"><img src="http://www.koa-cola.com/doc/video/poster.png" width="500"></a></p>
 <h2>使用路由装饰器创建路由，并返回json数据</h2>
