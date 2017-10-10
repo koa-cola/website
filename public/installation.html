@@ -213,15 +213,20 @@
           position: relative;
           margin-right: 10px;
       "><a href="https://github.com/koa-cola/website/blob/master/source/installation.md">修改</a></div>
-      <p>koa-cola支持node.js的版本包括7.6和8，建议使用8，因为8.0使用的最新的v8版本，而且8.0会在<a href="https://github.com/nodejs/LTS" target="_blank" rel="external">今年10月正式激活LTS</a>，因为koa-cola的async/await是原生方式使用没有经过transform，所以不支持node7.6以下的node版本。</p>
-<ul>
-<li><code>npm i koa-cola ts-node -g</code> 安装全局koa-cola和ts-node</li>
-<li><code>koa-cola new koa-cola-app</code> 在当前文件夹创建名字为app的新koa-cola项目，创建完整的目录结构，并自动安装依赖</li>
-<li><code>cd koa-cola-app</code></li>
-<li><code>koa-cola dev</code> dev模式启动，build webpack bundle、launch项目、并自动打开浏览器</li>
-</ul>
+      <!-- koa-cola支持node.js的版本包括7.6和8，建议使用8，因为8.0使用的最新的v8版本，而且8.0会在[今年10月正式激活LTS](https://github.com/nodejs/LTS)，因为koa-cola的async/await是原生方式使用没有经过transform，所以不支持node7.6以下的node版本。 -->
+<h1>创建项目</h1>
+<h2>安装全局koa-cola, ts-node, typescript</h2>
+<p><code>npm i koa-cola ts-node typescript -g</code></p>
+<h2>在当前文件夹创建名字为app的新koa-cola项目，创建完整的目录结构，并自动安装依赖</h2>
+<p><code>koa-cola new app</code></p>
+<h2>dev的开发模式启动项目，生成 webpack bundle、启动项目、并自动打开浏览器，并自动watch源码，当源码有修改，bundle js和ssr服务器端渲染都会自动重新加载module</h2>
+<p><code>cd koa-cola-app</code><br>
+<code>koa-cola dev</code></p>
 <p>视频演示：</p>
 <p><a href="http://www.koa-cola.com/doc/video/koa-cola-dev.mp4" target="_blank"><img src="http://www.koa-cola.com/doc/video/poster.png" width="500"></a></p>
+<h2>使用路由装饰器创建路由，并返回json数据</h2>
+<p><code>api/controllers/any_controller.ts</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> &#123; Controller, Get &#125; = <span class="built_in">require</span>(<span class="string">'koa-cola/client'</span>);</div><div class="line"></div><div class="line">@Controller(<span class="string">'/api'</span>)</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span>  </span>&#123;</div><div class="line">    @Get(<span class="string">'/todo/list'</span>)</div><div class="line">    list ( ) &#123;</div><div class="line">        <span class="keyword">return</span> [</div><div class="line">            <span class="string">'todo1'</span>, <span class="string">'todo2'</span></div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
     </div>
   </div>
