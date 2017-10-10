@@ -26,7 +26,7 @@
   - id: tip1-react-init
     title: 初始化react组件数据
   - id: tip2-redux
-    title: redux-connect组件的redux坑
+    title: Cola装饰器组件的redux坑
   - id: tip3-inject-global
     title: Inject global全局注入
   - id: tip4-cluster
