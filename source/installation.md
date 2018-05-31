@@ -11,19 +11,16 @@ next: cli.html
 
 ## 创建项目
 
-* **安装全局koa-cola, ts-node, typescript**
-`npm i koa-cola ts-node typescript -g` 
+* **安装全局koa-cola**
+`npm i koa-cola -g` 
 
 * **在当前文件夹创建名字为app的新koa-cola项目，创建完整的目录结构，并自动安装依赖**
 `koa-cola new app` 
 
 * **dev的开发模式启动项目，生成 webpack bundle、启动项目、并自动打开浏览器，并自动watch源码，当源码有修改，bundle js和ssr服务器端渲染都会自动重新加载module**
 `cd koa-cola-app`
-`koa-cola dev` 
+`npm run dev` 
 
-视频演示：
-
-<a href="http://www.koa-cola.com/doc/video/koa-cola-dev.mp4" target="_blank"><img src="http://www.koa-cola.com/doc/video/poster.png" width="500" /></a>
 
 ### 使用路由装饰器创建路由，并返回json数据
 
