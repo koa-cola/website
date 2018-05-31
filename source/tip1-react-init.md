@@ -5,28 +5,8 @@ title: 初始化react组件数据
 next: tip2-redux.html
 ---
 
-koa-cola提供两种方式初始化react。
+使用Cola装饰器的组件初始化数据
 
-## 在controller里面初始化
-
-初始化数据，数据将会注入到react组件的props.ctrl，如：this.props.ctrl.foo
-
-```javascript
-const { Controller, Get, Use, Param, Body, Delete, Put, Post, QueryParam, View, Ctx, Response } = require('koa-cola/client');
-@Controller('') 
-class FooController {
-    @Get('/some_page')  
-    @View('some_page') // some_page是普通react组件
-    async some_page (@Ctx() ctx, @QueryParam() param : any) { 
-        // 初始化数据，数据将会注入到react组件的props，如：this.props.ctrl.foo
-        return await Promise.resolve({
-            foo : 'bar'
-        });
-    }
-}
-```
-
-## 使用Cola装饰器的组件初始化数据
 ```javascript
 const {Cola} = require('koa-cola/client');
 

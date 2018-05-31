@@ -70,37 +70,7 @@ export default function() {
 };
 ```
 
-#### 渲染数据依赖组件方法1
-
-`api/controllers/any_controller.ts`
-
-```javascript
-var { Controller, Get, View } = require('koa-cola/client');
-
-@Controller('/')
-export default class  {
-    @Get('index')
-    @View('index')
-    index async () {
-        return {
-            foo : await Promise.resolve('bar')
-        }
-    }
-}
-```
-
-`views/pages/index.tsx`
-
-```javascript
-import * as React from 'react';
-export default function({ctrl : {foo}}) {
-    return <div>
-        {foo}
-    </div>
-};
-```
-
-#### 渲染数据依赖组件方法2
+#### 渲染数据依赖组件方法
 
 `api/controllers/any_controller.ts`
 

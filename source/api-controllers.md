@@ -27,38 +27,6 @@ export default class {
 }
 ```
 
-## page view的controller
-```javascript
-const { Controller, Get, Post, Body, Ctx,  Response } = require('koa-cola/client');
-
-@Controller('')
-export default class {
-  @Get('/index')
-  async index() {
-    return {
-        list : await app.models.todo.find({})
-    }
-  }
-}
-```
-
-index的page类(在目录views/pages下)
-
-```javascript
-import * as React from 'react';
-function Index({ctrl : {list}}){
-  return <div>
-    <ul>
-      {
-          list.map(item => <li>{item.name}</li>)
-      }
-    </ul>
-  </div>
-}
-```
-
-koa-cola提供一些比较好用的装饰器。
-
 ### 可以通过Response装饰器返回固定数据格式
 ```javascript
   /**

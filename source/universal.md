@@ -51,40 +51,6 @@ koa-cola集成了react-redux方案
 
 server端redux:
 
-#### controller返回props+普通react组件
-
-react组件最终会转换成react-redux组件，在生命周期的render之前，你可以使用redux比如dispatch。
-
-```javascript
-@Get('/view')
-@View('some_view')
-async view( @Ctx() ctx ) { // controller返回数据传递到react组件的props.ctrl
-    return await Promise.resolve({
-        foo : 'bar'
-    });
-} 
-```
-
-react组件：
-
-```javascript
-function({ctrl : {foo}}){
-    return <div>{foo}</div>
-}
-```
-
-或者
-
-```javascript
-class Page extends React.Component<Props, States>   {
-    constructor(props: Props) {
-        super(props);
-    }
-    render() {
-        return <div>{this.props.ctrl.foo}</div>
-    }
-};
-```
 #### 使用react-redux组件，但是无法获得controller返回的props
 
 ```javascript

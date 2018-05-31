@@ -27,15 +27,6 @@ class FooController {
             foo : 'bar'
         }
     }
-
-    @Get('/some_page')  // 定义 router 以及 method
-    @View('some_page')  // 在 /views/pages/ 下有对应的 some_page.tsx 页面
-    some_page (@Ctx() ctx, @QueryParam() param : any) { // 注入ctx和param
-        // 初始化数据，数据将会注入到react组件的props，如：this.props.ctrl.foo
-        return {
-            foo : 'bar'
-        }
-    }
 }
 ```
 Ok 模块：
