@@ -4,10 +4,21 @@
     title: koa-cola是什么?
   - id: ssr
     title: SSR和SPA
-  - id: compare-next
-    title: 对比next.js
+  # - id: compare-next
+  #   title: 对比next.js
   - id: universal
     title: Universal 前后端全栈开发
+    items:
+    - id: universal-router
+      title: 前后端router
+    - id: universal-redux
+      title: 前后端redux
+    - id: universal-component
+      title: 前后端react组件
+    - id: universal-api
+      title: 前后端api
+    - id: universal-validation
+      title: 前后端validation
   - id: d-mvc
     title: decorator的mvc开发模式
 - title: 使用方法
@@ -18,11 +29,6 @@
     title: 装饰器
   - id: cli
     title: Cli命令
-- title: 在线演示
-  items:
-  - id: demo-todolist
-    href: http://www.koa-cola.com:3000  
-    title: todolist例子
 - title: Tips
   items:
   - id: tip1-react-init
