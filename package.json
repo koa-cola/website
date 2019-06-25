@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "3.3.8"
+    "version": "3.9.0"
   },
   "scripts": {
     "deploy": "hexo generate && hexo deploy",
-    "gen":"hexo generate"
+    "gen": "hexo generate"
   },
   "dependencies": {
     "github-markdown-css": "^2.8.0",

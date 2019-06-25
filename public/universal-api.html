@@ -2,7 +2,7 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>ko-cola - Cli命令</title>
+  <title>ko-cola - 前后端api</title>
   <link href="/css/docs.css" rel="stylesheet">
   <link href="/css/github-markdown.css" rel="stylesheet">
   <script>
@@ -59,7 +59,7 @@
                     </li>
                   
                     <li style="height:28px">
-                      <a href="/universal-api.html">前后端api</a>
+                      <a href="/universal-api.html" class="active">前后端api</a>
                     </li>
                   
                     <li style="height:28px">
@@ -97,7 +97,7 @@
             
               <li>
               
-                 <a href="/cli.html" class="active">Cli命令</a>
+                 <a href="/cli.html">Cli命令</a>
               
               </li>
             
@@ -216,32 +216,28 @@
   </div>
   <div class="page">
     <div class="page-content">
-      <h1>Cli命令</h1>
+      <h1>前后端api</h1>
       <div style="
           float: right;
           top: -60px;
           position: relative;
           margin-right: 10px;
-      "><a href="https://github.com/koa-cola/website/blob/master/source/cli.md">修改</a></div>
-      <p>koa-cola提供了一些有用的cli命令，包括新建项目、启动项目、生成model schema文件</p>
-<h3>创建koa-cola项目</h3>
-<p><code>koa-cola new app</code> 或者 <code>koa-cola n app</code> 在当前目录创建文件夹名字为app的模版项目，并自动安装依赖，和自动build bundle和启动应用。</p>
-<h3>启动应用</h3>
-<p><code>npm run local</code> 在项目目录里面执行，启动项目，node端启动app项目，但是不会build bundle</p>
-<p><code>npm run dev</code> dev模式启动，build webpack bundle、launch项目、并自动打开浏览器</p>
-<h3>build bundle</h3>
-<p><code>npm run watch</code> 执行build命令，会自动寻找controller，并通过controller找到view，最后生成Provider，这个Provider会是webapck build js bundle的入口。</p>
-<p><strong>注意：这将会覆盖你的view/app.tsx</strong></p>
-<p>如果你需要维护你的app.tsx，那么你需要运行webpack命令而不是<code>npm run watch</code></p>
-<h3>生成model schema文件</h3>
-<p><code>npm run schema</code>  生成<code>api/schenmas</code>下面的model schema定义，保存在<code>typings/schema.ts</code></p>
+      "><a href="https://github.com/koa-cola/website/blob/master/source/universal-api.md">修改</a></div>
+      <h3>http api和请求fetch</h3>
+<p>在前面介绍，也说到过可以使用koa-cola定义的api基类来创建自己的api类，并使用api的fetch方法获取数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> api = <span class="keyword">new</span> GetTodoList(&#123;&#125;);</span><br><span class="line"><span class="keyword">const</span> data = <span class="keyword">await</span> api.fetch(helpers.ctx);</span><br></pre></td></tr></table></figure>
+<p>上面代码可以兼容服务器端和客户端，ajax库使用了<a href="https://github.com/mzabriskie/axios">axios</a>，比如 <a href="https://github.com/koa-cola/todolist">todolist demo</a> 有个react组件定义：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@Cola(&#123;</span><br><span class="line">    initData : &#123;</span><br><span class="line">        todosData : <span class="keyword">async</span> (&#123; params, helpers, <span class="attr">store</span>: &#123; dispatch &#125; &#125;) =&gt; &#123;</span><br><span class="line">            <span class="keyword">const</span> api = <span class="keyword">new</span> GetTodoList(&#123;&#125;);</span><br><span class="line">            <span class="keyword">const</span> data = <span class="keyword">await</span> api.fetch(helpers.ctx);</span><br><span class="line">            <span class="keyword">return</span> data.result.result;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Page</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span>&lt;<span class="title">Props</span>, <span class="title">States</span>&gt; </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Page;</span><br></pre></td></tr></table></figure>
+<p>如果该组件的路由是服务器端直接渲染，则<code>api.fetch</code>会在服务器端调用，如果该组件是在浏览器端的<code>&lt;Link&gt;</code>跳转，则<code>api.fetch</code>会在浏览器端调用。</p>
 
     </div>
   </div>
   <div class="switch-page">
     
-      <a class="previous" href="/installation.html">Previous</a>
+      <a class="previous" href="/universal-component.html">Previous</a>
     
+    
+      <a class="next" href="/universal-validation.html">Next</a>
     
   </div>
 </body>

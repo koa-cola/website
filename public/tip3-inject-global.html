@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charSet='utf-8' />
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
   <title>ko-cola - Inject global全局注入</title>
-  <link href='/css/docs.css' rel='stylesheet'>
-  <link href='/css/github-markdown.css' rel='stylesheet'>
+  <link href="/css/docs.css" rel="stylesheet">
+  <link href="/css/github-markdown.css" rel="stylesheet">
   <script>
     window.onunload = function(){
       var scollTop = document.getElementsByClassName('menu-nav')[0].scrollTop;
@@ -19,153 +19,51 @@
   </script>
 </head>
 <body>
-  <div class='menu'>
-    <div class='logo'>
+  <div class="menu">
+    <div class="logo">
       <a href="https://www.github.com/hcnode/koa-cola"><img src="/images/github.png" width="25"></a>&nbsp;&nbsp;Koa-cola
     </div>
-    <nav class='menu-nav' style="max-height: 87%;" onmouseover="this.style.overflowY='scroll'"  onmouseout="this.style.overflowY='hidden'">
+    <nav class="menu-nav" style="max-height: 87%;" onmouseover="this.style.overflowY='scroll'" onmouseout="this.style.overflowY='hidden'">
       
-        <ul class='nav'>
+        <ul class="nav">
           <span>介绍</span>
-          <ul class='nav'>
+          <ul class="nav">
             
               <li>
               
-                 <a href='/index.html'>koa-cola是什么?</a>
+                 <a href="/index.html">koa-cola是什么?</a>
               
               </li>
             
               <li>
               
-                 <a href='/ssr.html'>SSR和SPA</a>
+                 <a href="/ssr.html">SSR和SPA</a>
               
               </li>
             
               <li>
               
-                 <a href='/compare-next.html'>对比next.js</a>
-              
-              </li>
-            
-              <li>
-              
-                 <a href='/universal.html'>Universal 前后端全栈开发</a>
-              
-              </li>
-            
-              <li>
-              
-                 <a href='/d-mvc.html'>decorator的mvc开发模式</a>
-              
-              </li>
-            
-          </ul>
-        </ul>
-      
-        <ul class='nav'>
-          <span>使用方法</span>
-          <ul class='nav'>
-            
-              <li>
-              
-                 <a href='/installation.html'>如何使用</a>
-              
-              </li>
-            
-              <li>
-              
-                 <a href='/decorators.html'>装饰器</a>
-              
-              </li>
-            
-              <li>
-              
-                 <a href='/cli.html'>Cli命令</a>
-              
-              </li>
-            
-          </ul>
-        </ul>
-      
-        <ul class='nav'>
-          <span>在线演示</span>
-          <ul class='nav'>
-            
-              <li>
-              
-                 <a href='http://www.koa-cola.com:3000'>todolist例子</a>
-              
-              </li>
-            
-          </ul>
-        </ul>
-      
-        <ul class='nav'>
-          <span>Tips</span>
-          <ul class='nav'>
-            
-              <li>
-              
-                 <a href='/tip1-react-init.html'>初始化react组件数据</a>
-              
-              </li>
-            
-              <li>
-              
-                 <a href='/tip2-redux.html'>Cola装饰器组件的redux坑</a>
-              
-              </li>
-            
-              <li>
-              
-                 <a href='/tip3-inject-global.html' class='active'>Inject global全局注入</a>
-              
-              </li>
-            
-              <li>
-              
-                 <a href='/tip4-cluster.html'>cluster集群模式</a>
-              
-              </li>
-            
-              <li>
-              
-                 <a href='/tip5-debug.html'>调试</a>
-              
-              </li>
-            
-              <li>
-              
-                 <a href='/tip6-compile.html'>代码编译</a>
-              
-              </li>
-            
-          </ul>
-        </ul>
-      
-        <ul class='nav'>
-          <span>目录结构</span>
-          <ul class='nav'>
-            
-              <li>
-              
-                <a href='/api.html' style="padding:0px">api</a>
-                <ul class='nav' style="padding-top:0px">
+                <a href="/universal.html" style="padding:0px">Universal 前后端全栈开发</a>
+                <ul class="nav" style="padding-top:0px">
                   
                     <li style="height:28px">
-                      <a href='/api-controllers.html'>controllers</a>
+                      <a href="/universal-router.html">前后端router</a>
                     </li>
                   
                     <li style="height:28px">
-                      <a href='/api-models.html'>models</a>
+                      <a href="/universal-redux.html">前后端redux</a>
                     </li>
                   
                     <li style="height:28px">
-                      <a href='/api-schemas.html'>schemas</a>
+                      <a href="/universal-component.html">前后端react组件</a>
                     </li>
                   
                     <li style="height:28px">
-                      <a href='/api-responses.html'>responses</a>
+                      <a href="/universal-api.html">前后端api</a>
+                    </li>
+                  
+                    <li style="height:28px">
+                      <a href="/universal-validation.html">前后端validation</a>
                     </li>
                   
                 </ul>
@@ -174,31 +72,137 @@
             
               <li>
               
-                 <a href='/config.html'>config</a>
+                 <a href="/d-mvc.html">decorator的mvc开发模式</a>
+              
+              </li>
+            
+          </ul>
+        </ul>
+      
+        <ul class="nav">
+          <span>使用方法</span>
+          <ul class="nav">
+            
+              <li>
+              
+                 <a href="/installation.html">如何使用</a>
               
               </li>
             
               <li>
               
-                 <a href='/public.html'>public</a>
+                 <a href="/decorators.html">装饰器</a>
               
               </li>
             
               <li>
               
-                <a href='/views.html' style="padding:0px">views</a>
-                <ul class='nav' style="padding-top:0px">
+                 <a href="/cli.html">Cli命令</a>
+              
+              </li>
+            
+          </ul>
+        </ul>
+      
+        <ul class="nav">
+          <span>Tips</span>
+          <ul class="nav">
+            
+              <li>
+              
+                 <a href="/tip1-react-init.html">初始化react组件数据</a>
+              
+              </li>
+            
+              <li>
+              
+                 <a href="/tip2-redux.html">Cola装饰器组件的redux坑</a>
+              
+              </li>
+            
+              <li>
+              
+                 <a href="/tip3-inject-global.html" class="active">Inject global全局注入</a>
+              
+              </li>
+            
+              <li>
+              
+                 <a href="/tip4-cluster.html">cluster集群模式</a>
+              
+              </li>
+            
+              <li>
+              
+                 <a href="/tip5-debug.html">调试</a>
+              
+              </li>
+            
+              <li>
+              
+                 <a href="/tip6-compile.html">代码编译</a>
+              
+              </li>
+            
+          </ul>
+        </ul>
+      
+        <ul class="nav">
+          <span>目录结构</span>
+          <ul class="nav">
+            
+              <li>
+              
+                <a href="/api.html" style="padding:0px">api</a>
+                <ul class="nav" style="padding-top:0px">
                   
                     <li style="height:28px">
-                      <a href='/views-pages.html'>pages</a>
+                      <a href="/api-controllers.html">controllers</a>
                     </li>
                   
                     <li style="height:28px">
-                      <a href='/views-app.html'>app.tsx</a>
+                      <a href="/api-models.html">models</a>
                     </li>
                   
                     <li style="height:28px">
-                      <a href='/views-components.html'>components</a>
+                      <a href="/api-schemas.html">schemas</a>
+                    </li>
+                  
+                    <li style="height:28px">
+                      <a href="/api-responses.html">responses</a>
+                    </li>
+                  
+                </ul>
+              
+              </li>
+            
+              <li>
+              
+                 <a href="/config.html">config</a>
+              
+              </li>
+            
+              <li>
+              
+                 <a href="/public.html">public</a>
+              
+              </li>
+            
+              <li>
+              
+                <a href="/views.html" style="padding:0px">views</a>
+                <ul class="nav" style="padding-top:0px">
+                  
+                    <li style="height:28px">
+                      <a href="/views-pages.html">pages</a>
+                    </li>
+                  
+                    <li style="height:28px">
+                      <a href="/views-app.html">app.tsx</a>
+                    </li>
+                  
+                    <li style="height:28px">
+                      <a href="/views-components.html">components</a>
                     </li>
                   
                 </ul>
@@ -210,8 +214,8 @@
       
     </nav>
   </div>
-  <div class='page'>
-    <div class='page-content'>
+  <div class="page">
+    <div class="page-content">
       <h1>Inject global全局注入</h1>
       <div style="
           float: right;
@@ -220,15 +224,15 @@
           margin-right: 10px;
       "><a href="https://github.com/koa-cola/website/blob/master/source/tip3-inject-global.md">修改</a></div>
       <p>全局依赖注入，有时候在其他非应用运行时引用koa-cola里面的文件时，会因为文件依赖<code>app.xxx</code>而出错，使用inject global方式，可以实现第三方非koa-cola的require。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; reqInject &#125; <span class="keyword">from</span> <span class="string">'koa-cola'</span></div><div class="line"><span class="keyword">let</span> user;</div><div class="line">reqInject(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    user = <span class="built_in">require</span>(<span class="string">'./api/models/user'</span>).default <span class="comment">// 直接require项目内的文件</span></div><div class="line">    <span class="keyword">let</span> config = app.config; <span class="comment">// 或者app当前配置</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; reqInject &#125; <span class="keyword">from</span> <span class="string">'koa-cola'</span></span><br><span class="line"><span class="keyword">let</span> user;</span><br><span class="line">reqInject(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    user = <span class="built_in">require</span>(<span class="string">'./api/models/user'</span>).default <span class="comment">// 直接require项目内的文件</span></span><br><span class="line">    <span class="keyword">let</span> config = app.config; <span class="comment">// 或者app当前配置</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
     </div>
   </div>
-  <div class='switch-page'>
+  <div class="switch-page">
     
-      <a class='previous' href='/tip2-redux.html'>Previous</a>
+      <a class="previous" href="/tip2-redux.html">Previous</a>
     
     
-      <a class='next' href='/tip4-cluster.html'>Next</a>
+      <a class="next" href="/tip4-cluster.html">Next</a>
     
   </div>
 </body>

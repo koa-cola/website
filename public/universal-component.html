@@ -2,7 +2,7 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>ko-cola - Cli命令</title>
+  <title>ko-cola - 前后端react组件</title>
   <link href="/css/docs.css" rel="stylesheet">
   <link href="/css/github-markdown.css" rel="stylesheet">
   <script>
@@ -55,7 +55,7 @@
                     </li>
                   
                     <li style="height:28px">
-                      <a href="/universal-component.html">前后端react组件</a>
+                      <a href="/universal-component.html" class="active">前后端react组件</a>
                     </li>
                   
                     <li style="height:28px">
@@ -97,7 +97,7 @@
             
               <li>
               
-                 <a href="/cli.html" class="active">Cli命令</a>
+                 <a href="/cli.html">Cli命令</a>
               
               </li>
             
@@ -216,32 +216,30 @@
   </div>
   <div class="page">
     <div class="page-content">
-      <h1>Cli命令</h1>
+      <h1>前后端react组件</h1>
       <div style="
           float: right;
           top: -60px;
           position: relative;
           margin-right: 10px;
-      "><a href="https://github.com/koa-cola/website/blob/master/source/cli.md">修改</a></div>
-      <p>koa-cola提供了一些有用的cli命令，包括新建项目、启动项目、生成model schema文件</p>
-<h3>创建koa-cola项目</h3>
-<p><code>koa-cola new app</code> 或者 <code>koa-cola n app</code> 在当前目录创建文件夹名字为app的模版项目，并自动安装依赖，和自动build bundle和启动应用。</p>
-<h3>启动应用</h3>
-<p><code>npm run local</code> 在项目目录里面执行，启动项目，node端启动app项目，但是不会build bundle</p>
-<p><code>npm run dev</code> dev模式启动，build webpack bundle、launch项目、并自动打开浏览器</p>
-<h3>build bundle</h3>
-<p><code>npm run watch</code> 执行build命令，会自动寻找controller，并通过controller找到view，最后生成Provider，这个Provider会是webapck build js bundle的入口。</p>
-<p><strong>注意：这将会覆盖你的view/app.tsx</strong></p>
-<p>如果你需要维护你的app.tsx，那么你需要运行webpack命令而不是<code>npm run watch</code></p>
-<h3>生成model schema文件</h3>
-<p><code>npm run schema</code>  生成<code>api/schenmas</code>下面的model schema定义，保存在<code>typings/schema.ts</code></p>
+      "><a href="https://github.com/koa-cola/website/blob/master/source/universal-component.md">修改</a></div>
+      <h3>react组件的前后端复用</h3>
+<p>从前面react-router和react-redux可以看到react组件是可以完全前后端复用，在前端可以使用react所有功能，但是在server端只能使用render之前的生命周期，包括：</p>
+<ul>
+<li>constructor()</li>
+<li>componentWillMount()</li>
+<li>render()</li>
+</ul>
+<p>如果你的组件会依赖浏览器的dom，如果是在以上生命周期里面调用，则在server端渲染时出错，所以避免出错，你需要判断当前环境，比如：<code>if(typeof window != 'undefined')</code>，或者你可以使用这个类似<a href="https://github.com/airbnb/enzyme/blob/master/docs/guides/jsdom.md">模拟浏览器端方案</a>。</p>
 
     </div>
   </div>
   <div class="switch-page">
     
-      <a class="previous" href="/installation.html">Previous</a>
+      <a class="previous" href="/universal-redux.html">Previous</a>
     
+    
+      <a class="next" href="/universal-api.html">Next</a>
     
   </div>
 </body>

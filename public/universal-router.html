@@ -2,7 +2,7 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>ko-cola - Cli命令</title>
+  <title>ko-cola - 前后端router</title>
   <link href="/css/docs.css" rel="stylesheet">
   <link href="/css/github-markdown.css" rel="stylesheet">
   <script>
@@ -47,7 +47,7 @@
                 <ul class="nav" style="padding-top:0px">
                   
                     <li style="height:28px">
-                      <a href="/universal-router.html">前后端router</a>
+                      <a href="/universal-router.html" class="active">前后端router</a>
                     </li>
                   
                     <li style="height:28px">
@@ -97,7 +97,7 @@
             
               <li>
               
-                 <a href="/cli.html" class="active">Cli命令</a>
+                 <a href="/cli.html">Cli命令</a>
               
               </li>
             
@@ -216,32 +216,28 @@
   </div>
   <div class="page">
     <div class="page-content">
-      <h1>Cli命令</h1>
+      <h1>前后端router</h1>
       <div style="
           float: right;
           top: -60px;
           position: relative;
           margin-right: 10px;
-      "><a href="https://github.com/koa-cola/website/blob/master/source/cli.md">修改</a></div>
-      <p>koa-cola提供了一些有用的cli命令，包括新建项目、启动项目、生成model schema文件</p>
-<h3>创建koa-cola项目</h3>
-<p><code>koa-cola new app</code> 或者 <code>koa-cola n app</code> 在当前目录创建文件夹名字为app的模版项目，并自动安装依赖，和自动build bundle和启动应用。</p>
-<h3>启动应用</h3>
-<p><code>npm run local</code> 在项目目录里面执行，启动项目，node端启动app项目，但是不会build bundle</p>
-<p><code>npm run dev</code> dev模式启动，build webpack bundle、launch项目、并自动打开浏览器</p>
-<h3>build bundle</h3>
-<p><code>npm run watch</code> 执行build命令，会自动寻找controller，并通过controller找到view，最后生成Provider，这个Provider会是webapck build js bundle的入口。</p>
-<p><strong>注意：这将会覆盖你的view/app.tsx</strong></p>
-<p>如果你需要维护你的app.tsx，那么你需要运行webpack命令而不是<code>npm run watch</code></p>
-<h3>生成model schema文件</h3>
-<p><code>npm run schema</code>  生成<code>api/schenmas</code>下面的model schema定义，保存在<code>typings/schema.ts</code></p>
-
+      "><a href="https://github.com/koa-cola/website/blob/master/source/universal-router.md">修改</a></div>
+      <h3>前后端router</h3>
+<p>通过controller生成server端的react-router，并且也生成client端的react-redux的Provider(里面还是封装了react-router)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Controller(<span class="string">''</span>) </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FooController</span> </span>&#123;</span><br><span class="line">    @Get(<span class="string">'/'</span>)</span><br><span class="line">    @View(<span class="string">'index'</span>)</span><br><span class="line">    index(@Ctx() ctx) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'&lt;h1&gt;hello koa-cola !&lt;/h1&gt;'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>自动生成的server端的react-router:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Router</span> <span class="attr">...</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">"/"</span> <span class="attr">component</span>=<span class="string">&#123;IndexComponent&#125;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Router</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过react-router的match到对应的route后，再通过Provider，最终渲染出html：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Provider</span> <span class="attr">store</span>=<span class="string">&#123;store&#125;</span> <span class="attr">key</span>=<span class="string">"provider"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">SomeReduxComponent</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Provider</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>client端Provider则是:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Provider</span> <span class="attr">store</span>=<span class="string">&#123;store&#125;</span> <span class="attr">key</span>=<span class="string">"provider"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Router</span> <span class="attr">...</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">"/"</span> <span class="attr">component</span>=<span class="string">&#123;IndexComponent&#125;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Router</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Provider</span>&gt;</span></span><br></pre></td></tr></table></figure>
     </div>
   </div>
   <div class="switch-page">
     
-      <a class="previous" href="/installation.html">Previous</a>
     
+      <a class="next" href="/universal-redux.html">Next</a>
     
   </div>
 </body>
